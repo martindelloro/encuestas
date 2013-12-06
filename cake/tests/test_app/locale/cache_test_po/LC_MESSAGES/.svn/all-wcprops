@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/locale/cache_test_po/LC_MESSAGES
+END
+dom1.po
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/locale/cache_test_po/LC_MESSAGES/dom1.po
+END
+dom2.po
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/locale/cache_test_po/LC_MESSAGES/dom2.po
+END
+default.po
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/locale/cache_test_po/LC_MESSAGES/default.po
+END

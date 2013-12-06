@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/models/datasources
+END
+test2_source.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/models/datasources/test2_source.php
+END
+test2_other_source.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/models/datasources/test2_other_source.php
+END

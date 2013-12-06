@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/auh/!svn/ver/1/trunk/cake/tests/lib/templates
+END
+footer.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/auh/!svn/ver/1/trunk/cake/tests/lib/templates/footer.php
+END
+xdebug.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/auh/!svn/ver/1/trunk/cake/tests/lib/templates/xdebug.php
+END
+menu.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/auh/!svn/ver/1/trunk/cake/tests/lib/templates/menu.php
+END
+header.php
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/auh/!svn/ver/1/trunk/cake/tests/lib/templates/header.php
+END
+simpletest.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/auh/!svn/ver/1/trunk/cake/tests/lib/templates/simpletest.php
+END

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks
+END
+model.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/model.test.php
+END
+controller.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/controller.test.php
+END
+fixture.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/fixture.test.php
+END
+project.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/project.test.php
+END
+db_config.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/db_config.test.php
+END
+extract.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/extract.test.php
+END
+view.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/view.test.php
+END
+template.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/template.test.php
+END
+plugin.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/plugin.test.php
+END
+test.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/console/libs/tasks/test.test.php
+END
