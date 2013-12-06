@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/libs/cache
+END
+memcache.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/libs/cache/memcache.test.php
+END
+apc.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/libs/cache/apc.test.php
+END
+xcache.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/libs/cache/xcache.test.php
+END
+file.test.php
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/auh/!svn/ver/1/trunk/cake/tests/cases/libs/cache/file.test.php
+END

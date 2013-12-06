@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/vendors/Test
+END
+hello.php
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/vendors/Test/hello.php
+END
+MyTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/vendors/Test/MyTest.php
+END

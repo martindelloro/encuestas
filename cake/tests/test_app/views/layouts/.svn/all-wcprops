@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts
+END
+cache_empty_sections.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts/cache_empty_sections.ctp
+END
+flash.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts/flash.ctp
+END
+multi_cache.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts/multi_cache.ctp
+END
+cache_layout.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts/cache_layout.ctp
+END
+ajax.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts/ajax.ctp
+END
+default.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts/default.ctp
+END
+ajax2.ctp
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/auh/!svn/ver/1/trunk/cake/tests/test_app/views/layouts/ajax2.ctp
+END
