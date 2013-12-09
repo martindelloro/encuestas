@@ -10872,3 +10872,10 @@ DETAIL:  schema "encuestas" does not exist in [/var/www/encuestas/cake/libs/mode
 DETAIL:  schema "encuestas" does not exist in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
 2013-12-04 17:25:19 Warning: Warning (2): pg_query() [http://php.net/function.pg-query]: Query failed: ERROR:  invalid value for parameter "search_path": "encuestas"
 DETAIL:  schema "encuestas" does not exist in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
+2013-12-06 16:37:35 Warning: Warning (2): pg_connect() [<a href='http://php.net/function.pg-connect'>function.pg-connect</a>]: Unable to connect to PostgreSQL server: FATAL:  password authentication failed for user &quot;encuestas&quot;
+FATAL:  password authentication failed for user &quot;encuestas&quot; in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 119]
+2013-12-06 16:37:35 Warning: Warning (2): pg_query() expects parameter 1 to be resource, boolean given in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
+2013-12-06 16:37:35 Warning: Warning (2): pg_last_error() expects parameter 1 to be resource, boolean given in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 342]
+2013-12-06 16:37:35 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/encuestas/cake/libs/debugger.php:686) in [/var/www/encuestas/cake/libs/controller/controller.php, line 742]
+2013-12-06 16:48:05 Warning: Warning (2): pg_query() [<a href='http://php.net/function.pg-query'>function.pg-query</a>]: Query failed: ERROR:  invalid value for parameter &quot;search_path&quot;: &quot;encuestas&quot;
+DETAIL:  schema &quot;encuestas&quot; does not exist in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
