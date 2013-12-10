@@ -5564,3 +5564,7 @@
 2013-12-04 23:25:51 Notice: Notice (8): Undefined variable: localidad in [/var/www/encuestas/app/views/elements/usuarios/usuario_form.ctp, line 22]
 2013-12-04 23:25:58 Notice: Notice (8): Undefined variable: departamento in [/var/www/encuestas/app/views/elements/usuarios/usuario_form.ctp, line 21]
 2013-12-04 23:25:58 Notice: Notice (8): Undefined variable: localidad in [/var/www/encuestas/app/views/elements/usuarios/usuario_form.ctp, line 22]
+2013-12-10 14:06:56 Notice: Notice (8): Undefined index: rep_password in [/var/www/encuestas/app/controllers/usuarios_controller.php, line 23]
+2013-12-10 14:07:00 Notice: Notice (8): Undefined index: rep_password in [/var/www/encuestas/app/controllers/usuarios_controller.php, line 23]
+2013-12-10 14:07:05 Notice: Notice (8): Undefined index: rep_password in [/var/www/encuestas/app/controllers/usuarios_controller.php, line 23]
+2013-12-10 14:07:13 Notice: Notice (8): Undefined index: rep_password in [/var/www/encuestas/app/controllers/usuarios_controller.php, line 23]

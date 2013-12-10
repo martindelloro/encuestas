@@ -10872,3 +10872,15 @@ DETAIL:  schema "encuestas" does not exist in [/var/www/encuestas/cake/libs/mode
 DETAIL:  schema "encuestas" does not exist in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
 2013-12-04 17:25:19 Warning: Warning (2): pg_query() [http://php.net/function.pg-query]: Query failed: ERROR:  invalid value for parameter "search_path": "encuestas"
 DETAIL:  schema "encuestas" does not exist in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
+2013-12-10 14:08:01 Warning: Warning (2): pg_query() [http://php.net/function.pg-query]: Query failed: ERROR:  invalid input syntax for type date: "adfs"
+LINE 1: ...created") VALUES ('fsad', 'dfsa', 'sadf', 'dsaf', 'adfs', 'a...
+                                                             ^ in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
+2013-12-10 14:08:01 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  invalid input syntax for type date: "adfs"
+LINE 1: ...created") VALUES ('fsad', 'dfsa', 'sadf', 'dsaf', 'adfs', 'a...
+                                                             ^</span> in [/var/www/encuestas/cake/libs/model/datasources/dbo_source.php, line 684]
+2013-12-10 14:08:15 Warning: Warning (2): pg_query() [http://php.net/function.pg-query]: Query failed: ERROR:  invalid input syntax for type date: "asdf"
+LINE 1: ...created") VALUES ('adfs', 'afsd', 'adfs', 'afsd', 'asdf', 'a...
+                                                             ^ in [/var/www/encuestas/cake/libs/model/datasources/dbo/dbo_postgres.php, line 167]
+2013-12-10 14:08:15 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> ERROR:  invalid input syntax for type date: "asdf"
+LINE 1: ...created") VALUES ('adfs', 'afsd', 'adfs', 'afsd', 'asdf', 'a...
+                                                             ^</span> in [/var/www/encuestas/cake/libs/model/datasources/dbo_source.php, line 684]

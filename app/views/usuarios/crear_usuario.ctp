@@ -20,6 +20,7 @@
 				<?php echo $this->element("usuarios/usuario_form") ?>
 				<?php //echo $this->element("usuarios/grupo_form") ?>
 		</div>
+                
 		<?php echo $this->Form->end() ?>
 	</div>
     
