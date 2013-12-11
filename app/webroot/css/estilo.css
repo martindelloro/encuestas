@@ -362,6 +362,20 @@ body .mensaje-contenido{
 	width:100%;	
 }
 
+/*************************************************/
+/*********    FICHA CREAR PREGUNTAS     **********/
+/*************************************************/
+
+
+#crearPregunta .titulo-opciones{
+	background-color: #702834;
+    color: #FFFFFF;
+    font-family: "Helvetica";
+    font-weight: bold;
+    padding: 5px !important;
+    text-align: center;
+}
+
 
 /*************************************************/
 /*********  FICHA CREAR USUARIO GRUPO   **********/

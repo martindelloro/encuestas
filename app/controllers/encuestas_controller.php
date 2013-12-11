@@ -1,9 +1,7 @@
 <?php
 
-class EncuestasController extends controller{
-	
-	
-	
+class EncuestasController extends AppController{
+		
 	function crear(){
 		if(!empty($this->data)){
 			
