@@ -22,8 +22,8 @@
 
 <div class="row-fluid">
     <?php echo $this->Ajax->submit("Crear Usuario", array("url"=>array("controller"=>'usuarios',"action"=>'crear_usuario'),"update"=>"crear_usuario", "before"=>"inicia_ajax()","complete"=>"fin_ajax()")); ?>
-    <?php echo $this->Mensajes->mostrar();  ?>
-    <?php echo $this->Js->writeBuffer() ?>
+    
 </div>
     
-
+<?php echo $this->Mensajes->mostrar();  ?>
+<?php echo $this->Js->writeBuffer() ?>
