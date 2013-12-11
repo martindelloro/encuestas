@@ -9,7 +9,9 @@ class MensajesHelper extends AppHelper{
         if(!empty($mensaje)){
            $return  = "<script type='text/javascript'>"; 
            $return .= "$('.mensaje-sistema .mensaje-contenido').html('$mensaje');";
-           $return .= "$('.mensaje-sistema').modal()";
+           $return .= "$('.mensaje-sistema').modal('show');";
+           $return .= "$('.mensaje-sistema').parent().css('z-index',5000);";
+           $return .= "$('.mensaje-sistema').parent().next().css('z-index',4990);";
            $return .= "</script>";
         }
         return $return;
