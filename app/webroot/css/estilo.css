@@ -1,4 +1,6 @@
-
+select {
+    width:98% !important;
+}
 body .modal-body{
 	max-height: none;
 	height:72%;
