@@ -364,10 +364,15 @@ body .mensaje-contenido{
 	width:100%;	
 }
 
+
+
 /*************************************************/
 /*********    FICHA CREAR PREGUNTAS     **********/
 /*************************************************/
 
+#crearPregunta input{
+	width:100%;
+}
 
 #crearPregunta .titulo-opciones{
 	background-color: #702834;
@@ -376,8 +381,56 @@ body .mensaje-contenido{
     font-weight: bold;
     padding: 5px !important;
     text-align: center;
+  
 }
 
+#crearPregunta .boton-agregar{
+	position:absolute;
+	right:25px;
+	margin-top:-1px;
+}
+
+#crearPregunta .borrar-opcion{
+	float:right;
+	position:relative;
+	color: #702834;
+	margin-right:4px;
+	margin-top:4px;
+}
+
+#crearPregunta .borrar-opcion:hover{
+	cursor:pointer;
+}
+
+#crearPregunta .contenedor-opciones input{
+	width:98.5%;
+}
+
+#crearPregunta .label{
+	width:99% !important;
+	height:25px !important;
+	
+}
+
+#crearPregunta .label span{
+	float:left;
+	position:relative;
+	margin-top:4px;
+}
+
+/*************************************************/
+/*********     CONTENEDOR PREGUNTAS     **********/
+/*************************************************/
+
+.preguntas-label .label{
+	padding: 5px 0;
+    text-align: center;
+    width: 100% !important;
+}
+
+.preguntas-label {
+	border-bottom: 2px solid #702834;
+	}
 
 /*************************************************/
 /*********  FICHA CREAR USUARIO GRUPO   **********/
