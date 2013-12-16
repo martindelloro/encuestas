@@ -418,6 +418,7 @@ body .mensaje-contenido{
 	margin-top:4px;
 }
 
+
 /*************************************************/
 /*********     CONTENEDOR PREGUNTAS     **********/
 /*************************************************/
@@ -431,6 +432,15 @@ body .mensaje-contenido{
 .preguntas-label {
 	border-bottom: 2px solid #702834;
 	}
+	
+.contenedor-preguntas .pregunta:nth-child(odd){
+	background-color:#F5F5F5;
+	border-bottom: 1px solid #702834;
+}
+
+.contenedor-preguntas .pregunta:last-child{
+	border-bottom:none;
+}
 
 /*************************************************/
 /*********  FICHA CREAR USUARIO GRUPO   **********/

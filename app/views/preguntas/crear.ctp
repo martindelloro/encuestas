@@ -3,7 +3,7 @@
 <?php echo $this->Form->create("Pregunta"); ?>
 <div class="modal-header header-ficha azul">
     <div class="botonera-header">
-    	<?php echo $this->Ajax->link("<i class='icon-save icon-white'> Guardar</i>",array("controller"=>"preguntas","action"=>"crear"),array("class"=>"btn btn-inverse","update"=>"contenedor-preguntas","before"=>"inicia_ajax()","complete"=>"fin_ajax()","with"=>"$(this).parents('form:first').serialize()","escape"=>false)) ?>
+    	<?php echo $this->Ajax->link("<i class='icon-save icon-white'> Guardar</i>",array("controller"=>"preguntas","action"=>"crear"),array("class"=>"btn btn-inverse","update"=>"exec_js","before"=>"inicia_ajax()","complete"=>"fin_ajax()","with"=>"$(this).parents('form:first').serialize()","escape"=>false)) ?>
         <?php echo $this->Html->link("<i class='icon-white icon-remove-sign'></i>","#",array("class"=>"btn btn-inverse","data-dismiss"=>"modal","escape"=>false)) ?>
     	
     </div>
