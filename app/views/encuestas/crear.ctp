@@ -12,7 +12,7 @@
 </ul>
 
 <div class="modal-body">
-	 <div class="tabbable">
+	 
 	    
         <div class="tab-content">
                             
@@ -20,7 +20,7 @@
 				<?php //echo $this->element("usuarios/grupo_form") ?>
 		</div>
 		
-	</div>
+	
     
 </div>
 <?php echo $this->Js->writeBUffer(); ?>

@@ -9,18 +9,27 @@
     </div>
 </div>
 
+<ul class="nav nav-pills borde-abajo barra-nav" style="clear:both">
+    <li class="active"><?php echo $this->Html->link("Pregunta","#pregunta",array("data-toggle"=>"tab")) ?></li>
+	<li><?php echo $this->Html->link("Validaciones","#validaciones",array("data-toggle"=>"tab")) ?></li>
+</ul>
+
 <div class="modal-body">
+		
+		<div class="tab-content">
+			<div class="tab-pane active" id="pregunta">
+				<div class="well titulo-opciones">Pregunta</div>
+				<div class="row-fluid">
+					<div class="span9"><?php echo $this->Form->input("nombre",array("type"=>"text","label"=>"Nombre")) ?></div>
+					<div class="span3"><?php echo $this->Form->input("tipo_id",array("type"=>"select","options"=>$tipos,"label"=>"Tipo de pregunta")) ?></div>
+				</div>			
+			</div>
+			
+			<?php echo $this->element("/preguntas/validaciones_tabpane"); ?>
+			
+		</div> <!--  fin div tab-content -->
 	
-		<div class="well titulo-opciones">Pregunta</div>
-		<div class="row-fluid">
-			<div class="span9"><?php echo $this->Form->input("nombre",array("type"=>"text","label"=>"Nombre")) ?></div>
-			<div class="span3"><?php echo $this->Form->input("tipo_id",array("type"=>"select","options"=>$tipos,"label"=>"Tipo de pregunta")) ?></div>
-		</div>
-		
-		
-		
-	
-</div>
+</div> <!--  fin div modal body -->
 <?php echo $this->Form->end(); ?>
 
 <?php echo $this->Js->writeBuffer() ?>
@@ -34,12 +43,13 @@
 				$(this).parents(".row-fluid:first").remove();
 	});
 
-	$("#crearPregunta").on("click",".boton-agregar",function(){
+	$("#crearPregunta").on("click",".boton-agregar",function(event){
 				++contOpciones;
 				var data = {n:contOpciones};
 				template = Hogan.compile(templateOpciones);
 				procesado = template.render(data);
-				$(".contenedor-opciones").children(".titulo-opciones").after(procesado);			
+				$(".contenedor-opciones .titulo-opciones").after(procesado);
+				event.stopImmediatePropagation();			
 	
 	});
 
