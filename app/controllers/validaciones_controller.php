@@ -1,6 +1,6 @@
 <?php
 
-class ValidacionesController extends controller{
+class ValidacionesController extends AppController{
 	var $uses = array("validaciones");
 }
 

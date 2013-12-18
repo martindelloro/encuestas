@@ -233,6 +233,7 @@ body .mensaje-contenido{
 
 .nav.nav-pills.borde-abajo.barra-nav{
 	background-color: white;
+	margin-bottom:0px;
 }
 
 .modal-header {
@@ -375,6 +376,205 @@ body .mensaje-contenido{
 }
 
 
+
+/*************************************************/
+/*********    FICHA CREAR PREGUNTAS     **********/
+/*************************************************/
+
+#crearPregunta input{
+	width:100%;
+}
+
+#crearPregunta .titulo-opciones{
+	background-color: #702834;
+    color: #FFFFFF;
+    font-family: "Helvetica";
+    font-weight: bold;
+    margin-bottom: 2px !important;
+    padding: 5px !important;
+    text-align: center;
+  
+}
+
+#crearPregunta .boton-agregar{
+	position:absolute;
+	right:25px;
+	margin-top:-1px;
+}
+
+#crearPregunta .borrar-opcion{
+	float:right;
+	position:relative;
+	color: #702834;
+	margin-right:4px;
+	margin-top:4px;
+}
+
+#crearPregunta .borrar-opcion:hover{
+	cursor:pointer;
+}
+
+#crearPregunta .contenedor-opciones input{
+	width:98.5%;
+}
+
+#crearPregunta .label{
+	width:99% !important;
+	height:25px !important;
+	
+}
+
+#crearPregunta .label span{
+	float:left;
+	position:relative;
+	margin-top:4px;
+}
+
+
+/*************************************************/
+/*********     CONTENEDOR PREGUNTAS     **********/
+/*************************************************/
+
+.preguntas-label .label{
+	padding: 5px 0;
+    text-align: center;
+    width: 100% !important;
+}
+
+.preguntas-label {
+	border-bottom: 2px solid #702834;
+	}
+
+.contenedor-preguntas .pregunta{
+	margin-top:4px;
+	border-bottom: 1px solid #702834;
+}
+
+.contenedor-preguntas .pregunta span{
+	text-align:center;
+	margin-top:3px;
+	font-weight:bold;
+	color:#702834;
+	display:block;
+}
+
+.contenedor-preguntas .pregunta:nth-child(odd){
+	background-color:#F5F5F5;
+	
+}
+
+.contenedor-preguntas .pregunta:last-child{
+	border-bottom:none;
+}
+
+.contenedor-preguntas .boton-posicion{
+	float:right;
+	margin-left:4px;
+	margin-top:7px;
+	cursor:pointer;
+}
+
+.botones a{
+	float:right;
+	margin-top:4px;
+	margin-left:4px;
+}
+
+/*************************************************/
+/*********    CONTENEDOR VALIDACIONES   **********/
+/*************************************************/
+
+#validaciones {
+	margin-top:2px !important;
+}
+
+#validaciones .titulo-opciones{
+	margin-top:2px !important;
+}
+
+.validacion{
+	background-color: white !important;
+	border: 2px solid black !important;
+	margin-top:4px;
+	padding: 5px 5px 0 !important;
+}
+
+.validacion textarea{
+	height: 45px;
+    width: 100% !important;
+}
+
+.validacion .boton-borrar{
+	background-color: #000000;
+    border: 1px solid #000000 !important;
+    color: #FFFFFF !important;
+    float: right;
+    opacity: 0.7;
+    margin-bottom:2px;
+}
+
+.validacion .boton-borrar:hover{
+	background-color:white;
+	color: black !important;	
+}
+
+.titulo-validaciones{
+	padding-bottom: 3px;
+}
+
+.titulo-validaciones .label{
+	background-color: #000000;
+    height: 25px !important;
+    margin-bottom: 1px;
+    margin-top: 2px;
+    opacity: 0.7;
+    padding: 2px !important;
+    width: 99% !important;
+}
+
+.titulo-validaciones .label span{
+	width:100%;
+	text-align:center;
+}
+
+
+/*************************************************/
+/*********       PRESET GENERALES       **********/
+/*************************************************/
+
+.borde-abajo-rojo{
+	border-bottom:2px solid #702834;
+}
+
+.modal form{
+	height:100% !important;
+}
+
+.titulo-general{
+	background-color: #702834 !important;
+    color: #FFFFFF;
+    font-family: "Helvetica";
+    font-weight: bold;
+    margin-bottom: 2px !important;
+    padding: 5px !important;
+    text-align: center;
+	
+}
+
+.titulo-general span{
+	width:100%;
+	text-align:center;
+}
+
+.titulo-general a{
+	position:absolute;
+	right:25px;
+	margin-top:-1px;
+}
+
+.input-100{
+	width:100% !important;
+}
 /*************************************************/
 /*********  FICHA CREAR USUARIO GRUPO   **********/
 /*************************************************/

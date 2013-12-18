@@ -23,14 +23,15 @@ CREATE TABLE preguntas
   usuario_id integer,
   nombre character varying,
   valor character varying,
-  tipo character varying,
-  orden integer
+  orden integer,
+  tipo_id integer
 )
 WITH (
   OIDS=FALSE
 );
 ALTER TABLE preguntas
   OWNER TO encuestas;
+
 
 
 CREATE TABLE validaciones
@@ -50,6 +51,7 @@ WITH (
 );
 ALTER TABLE validaciones
   OWNER TO encuestas;
+
 
 
 CREATE TABLE reglas
@@ -88,3 +90,26 @@ WITH (
 ALTER TABLE preguntas_validaciones
   OWNER TO encuestas;
 
+CREATE TABLE opciones
+(
+  id serial NOT NULL,
+  nombre character varying,
+  pregunta_id integer
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE opciones
+  OWNER TO encuestas;
+
+CREATE TABLE tipos
+(
+  id serial NOT NULL,
+  nombre character varying,
+  CONSTRAINT tipos_primarykey PRIMARY KEY (id)
+)
+WITH (
+  OIDS=FALSE
+);
+ALTER TABLE tipos
+  OWNER TO encuestas;
