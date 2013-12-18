@@ -540,6 +540,31 @@ body .mensaje-contenido{
 	height:100% !important;
 }
 
+.titulo-general{
+	background-color: #702834 !important;
+    color: #FFFFFF;
+    font-family: "Helvetica";
+    font-weight: bold;
+    margin-bottom: 2px !important;
+    padding: 5px !important;
+    text-align: center;
+	
+}
+
+.titulo-general span{
+	width:100%;
+	text-align:center;
+}
+
+.titulo-general a{
+	position:absolute;
+	right:25px;
+	margin-top:-1px;
+}
+
+.input-100{
+	width:100% !important;
+}
 /*************************************************/
 /*********  FICHA CREAR USUARIO GRUPO   **********/
 /*************************************************/

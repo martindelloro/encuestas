@@ -8,20 +8,15 @@
 
 <ul class="nav nav-pills borde-abajo barra-nav" style="clear:both">
     <li class="active"><?php echo $this->Html->link("Encuesta","#encuesta",array("data-toggle"=>"tab")) ?></li>
-	
+	<li><?php echo $this->Html->link("Asociar encuesta a grupos","#asociarGrupos",array("data-toggle"=>"tab")) ?></li>
 </ul>
 
 <div class="modal-body">
-	 
-	    
-        <div class="tab-content">
-                            
-				<?php echo $this->element("encuestas/crear_form") ?>
-				<?php //echo $this->element("usuarios/grupo_form") ?>
-		</div>
-		
-	
-    
+   <div class="tab-content">
+    	<?php echo $this->element("encuestas/crear_form") ?>
+		<?php echo $this->element("encuestas/grupo_form") ?>
+   </div>
 </div>
+
 <?php echo $this->Js->writeBUffer(); ?>
 <?php echo $this->Form->end() ?>
