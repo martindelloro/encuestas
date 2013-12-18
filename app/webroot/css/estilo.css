@@ -1,6 +1,9 @@
 select {
     width:98% !important;
 }
+input{
+    width: 98% !important;
+}
 body .modal-body{
 	max-height: none;
 	height:72%;
@@ -253,6 +256,13 @@ body .mensaje-contenido{
 	border-bottom: 1px solid #364659 !important;
 }
 
+/*************************************************/
+    /********  REPORTES  *********/
+/*************************************************/
+
+.contenedor-reportes .resultados:nth-child(odd){
+    background-color:#DDDDDD;
+}
 
 /*************************************************/
 /************** FICHA USUARIOS INFO  *************/
