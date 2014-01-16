@@ -11,8 +11,8 @@ SET default_with_oids = false;
 -- Dependencies: 7
 -- Name: datos_academicos; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE datos_academicos (
+DROP TABLE IF EXISTS datos_academicos;
+CREATE TABLE datos_academicos (
     usuario_id integer,
     id integer NOT NULL,
     carrera_id integer,
@@ -37,7 +37,7 @@ ALTER TABLE encuestas.datos_academicos OWNER TO encuestas;
 -- Name: datos_academicos_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE datos_academicos_id_seq
+CREATE SEQUENCE datos_academicos_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -53,7 +53,7 @@ ALTER  TABLE encuestas.datos_academicos_id_seq OWNER TO encuestas;
 -- Name: datos_academicos_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE datos_academicos_id_seq OWNED BY datos_academicos.id;
+CREATE SEQUENCE datos_academicos_id_seq OWNED BY datos_academicos.id;
 
 
 --
@@ -61,8 +61,8 @@ ALTER SEQUENCE datos_academicos_id_seq OWNED BY datos_academicos.id;
 -- Dependencies: 7
 -- Name: encuestas; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE encuestas (
+DROP TABLE IF EXISTS encuestas;
+CREATE TABLE encuestas (
     id integer NOT NULL,
     usuario_id integer,
     created date,
@@ -81,8 +81,8 @@ ALTER TABLE encuestas.encuestas OWNER TO encuestas;
 -- Dependencies: 7
 -- Name: encuestas_grupos; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE encuestas_grupos (
+DROP TABLE IF EXISTS encuestas_grupos;
+CREATE TABLE encuestas_grupos (
     id integer NOT NULL,
     encuesta_id integer,
     grupo_id integer
@@ -97,7 +97,7 @@ ALTER TABLE encuestas.encuestas_grupos OWNER TO encuestas;
 -- Name: encuestas_grupos_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE encuestas_grupos_id_seq
+CREATE SEQUENCE encuestas_grupos_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -113,7 +113,7 @@ ALTER TABLE encuestas.encuestas_grupos_id_seq OWNER TO encuestas;
 -- Name: encuestas_grupos_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE encuestas_grupos_id_seq OWNED BY encuestas_grupos.id;
+CREATE SEQUENCE encuestas_grupos_id_seq OWNED BY encuestas_grupos.id;
 
 
 --
@@ -122,7 +122,7 @@ ALTER SEQUENCE encuestas_grupos_id_seq OWNED BY encuestas_grupos.id;
 -- Name: encuestas_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE encuestas_id_seq
+CREATE SEQUENCE encuestas_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -146,8 +146,8 @@ ALTER SEQUENCE encuestas_id_seq OWNED BY encuestas.id;
 -- Dependencies: 7
 -- Name: encuestas_preguntas; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE encuestas_preguntas (
+DROP TABLE IF EXISTS encuestas_preguntas;
+CREATE TABLE encuestas_preguntas (
     id integer NOT NULL,
     encuesta_id integer,
     pregunta_id integer
@@ -162,7 +162,7 @@ ALTER TABLE encuestas.encuestas_preguntas OWNER TO encuestas;
 -- Name: encuestas_preguntas_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE encuestas_preguntas_id_seq
+CREATE SEQUENCE encuestas_preguntas_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -178,7 +178,7 @@ ALTER TABLE encuestas.encuestas_preguntas_id_seq OWNER TO encuestas;
 -- Name: encuestas_preguntas_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE encuestas_preguntas_id_seq OWNED BY encuestas_preguntas.id;
+CREATE SEQUENCE encuestas_preguntas_id_seq OWNED BY encuestas_preguntas.id;
 
 
 --
@@ -186,8 +186,8 @@ ALTER SEQUENCE encuestas_preguntas_id_seq OWNED BY encuestas_preguntas.id;
 -- Dependencies: 7
 -- Name: grupos; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE grupos (
+DROP TABLE IF EXISTS grupos;
+CREATE TABLE grupos (
     id integer NOT NULL,
     nombre character varying
 );
@@ -201,7 +201,7 @@ ALTER TABLE encuestas.grupos OWNER TO encuestas;
 -- Name: grupos_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE grupos_id_seq
+CREATE SEQUENCE grupos_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -217,7 +217,7 @@ ALTER TABLE encuestas.grupos_id_seq OWNER TO encuestas;
 -- Name: grupos_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE grupos_id_seq OWNED BY grupos.id;
+CREATE SEQUENCE grupos_id_seq OWNED BY grupos.id;
 
 
 --
@@ -225,8 +225,8 @@ ALTER SEQUENCE grupos_id_seq OWNED BY grupos.id;
 -- Dependencies: 7
 -- Name: grupos_usuarios; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE grupos_usuarios (
+DROP TABLE IF EXISTS grupos_usuarios;
+CREATE TABLE grupos_usuarios (
     id integer NOT NULL,
     grupo_id integer,
     usuario_id integer
@@ -241,7 +241,7 @@ ALTER TABLE encuestas.grupos_usuarios OWNER TO encuestas;
 -- Name: grupos_usuarios_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE grupos_usuarios_id_seq
+CREATE SEQUENCE grupos_usuarios_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -257,7 +257,7 @@ ALTER TABLE encuestas.grupos_usuarios_id_seq OWNER TO encuestas;
 -- Name: grupos_usuarios_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE grupos_usuarios_id_seq OWNED BY grupos_usuarios.id;
+CREATE SEQUENCE grupos_usuarios_id_seq OWNED BY grupos_usuarios.id;
 
 
 --
@@ -265,8 +265,8 @@ ALTER SEQUENCE grupos_usuarios_id_seq OWNED BY grupos_usuarios.id;
 -- Dependencies: 7
 -- Name: opciones; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE opciones (
+DROP TABLE IF EXISTS opciones;
+CREATE TABLE opciones (
     id integer NOT NULL,
     nombre character varying,
     pregunta_id integer
@@ -281,7 +281,7 @@ ALTER TABLE encuestas.opciones OWNER TO encuestas;
 -- Name: opciones_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE opciones_id_seq
+CREATE SEQUENCE opciones_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -297,7 +297,7 @@ ALTER TABLE encuestas.opciones_id_seq OWNER TO encuestas;
 -- Name: opciones_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE opciones_id_seq OWNED BY opciones.id;
+CREATE SEQUENCE opciones_id_seq OWNED BY opciones.id;
 
 
 --
@@ -305,8 +305,8 @@ ALTER SEQUENCE opciones_id_seq OWNED BY opciones.id;
 -- Dependencies: 1905 7
 -- Name: preguntas; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE preguntas (
+DROP TABLE IF EXISTS preguntas;
+CREATE TABLE preguntas (
     id integer NOT NULL,
     created date,
     modified date,
@@ -327,7 +327,7 @@ ALTER TABLE encuestas.preguntas OWNER TO encuestas;
 -- Name: preguntas_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE preguntas_id_seq
+CREATE SEQUENCE preguntas_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -343,7 +343,7 @@ ALTER TABLE encuestas.preguntas_id_seq OWNER TO encuestas;
 -- Name: preguntas_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE preguntas_id_seq OWNED BY preguntas.id;
+CREATE SEQUENCE preguntas_id_seq OWNED BY preguntas.id;
 
 
 --
@@ -351,8 +351,8 @@ ALTER SEQUENCE preguntas_id_seq OWNED BY preguntas.id;
 -- Dependencies: 7
 -- Name: reglas; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE reglas (
+DROP TABLE IF EXISTS reglas;
+CREATE TABLE reglas (
     id integer NOT NULL,
     regla character varying,
     "ruleCake" character varying,
@@ -368,7 +368,7 @@ ALTER TABLE encuestas.reglas OWNER TO encuestas;
 -- Name: reglas_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE reglas_id_seq
+CREATE SEQUENCE reglas_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -384,7 +384,7 @@ ALTER TABLE encuestas.reglas_id_seq OWNER TO encuestas;
 -- Name: reglas_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE reglas_id_seq OWNED BY reglas.id;
+CREATE SEQUENCE reglas_id_seq OWNED BY reglas.id;
 
 
 --
@@ -392,8 +392,8 @@ ALTER SEQUENCE reglas_id_seq OWNED BY reglas.id;
 -- Dependencies: 7
 -- Name: tipos; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE tipos (
+DROP TABLE IF EXISTS tipos;
+CREATE TABLE tipos (
     id integer NOT NULL,
     nombre character varying
 );
@@ -407,7 +407,7 @@ ALTER TABLE encuestas.tipos OWNER TO encuestas;
 -- Name: tipos_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE tipos_id_seq
+CREATE SEQUENCE tipos_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -423,7 +423,7 @@ ALTER TABLE encuestas.tipos_id_seq OWNER TO encuestas;
 -- Name: tipos_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE tipos_id_seq OWNED BY tipos.id;
+CREATE SEQUENCE tipos_id_seq OWNED BY tipos.id;
 
 
 --
@@ -431,8 +431,8 @@ ALTER SEQUENCE tipos_id_seq OWNED BY tipos.id;
 -- Dependencies: 7
 -- Name: usuarios; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE usuarios (
+DROP TABLE IF EXISTS usuarios;
+CREATE TABLE usuarios (
     id integer NOT NULL,
     dni character varying,
     apellido character varying,
@@ -465,7 +465,7 @@ ALTER TABLE encuestas.usuarios OWNER TO encuestas;
 -- Name: usuarios_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE usuarios_id_seq
+CREATE SEQUENCE usuarios_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -481,7 +481,7 @@ ALTER TABLE encuestas.usuarios_id_seq OWNER TO encuestas;
 -- Name: usuarios_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE usuarios_id_seq OWNED BY usuarios.id;
+CREATE SEQUENCE usuarios_id_seq OWNED BY usuarios.id;
 
 
 --
@@ -489,8 +489,8 @@ ALTER SEQUENCE usuarios_id_seq OWNED BY usuarios.id;
 -- Dependencies: 7
 -- Name: validaciones; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
-
-CREATE OR REPLACE TABLE validaciones (
+DROP TABLE IF EXISTS validaciones;
+CREATE TABLE validaciones (
     obligatoria boolean,
     regla_id integer,
     created date,
@@ -513,7 +513,7 @@ ALTER TABLE encuestas.validaciones OWNER TO encuestas;
 -- Name: validaciones_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
 --
 
-CREATE OR REPLACE SEQUENCE validaciones_id_seq
+CREATE SEQUENCE validaciones_id_seq
     START WITH 1
     INCREMENT BY 1
     NO MINVALUE
@@ -529,7 +529,7 @@ ALTER TABLE encuestas.validaciones_id_seq OWNER TO encuestas;
 -- Name: validaciones_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
 --
 
-ALTER SEQUENCE validaciones_id_seq OWNED BY validaciones.id;
+CREATE SEQUENCE validaciones_id_seq OWNED BY validaciones.id;
 
 
 --
@@ -895,7 +895,7 @@ SELECT pg_catalog.setval('validaciones_id_seq', 3, true);
 -- Name: reglas.id.primarykey; Type: CONSTRAINT; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
 
-ALTER TABLE ONLY reglas
+CREATE TABLE ONLY reglas
     ADD CONSTRAINT "reglas.id.primarykey" PRIMARY KEY (id);
 
 
@@ -905,7 +905,7 @@ ALTER TABLE ONLY reglas
 -- Name: tipos_primarykey; Type: CONSTRAINT; Schema: encuestas; Owner: encuestas; Tablespace: 
 --
 
-ALTER TABLE ONLY tipos
+CREATE TABLE ONLY tipos
     ADD CONSTRAINT tipos_primarykey PRIMARY KEY (id);
 
 

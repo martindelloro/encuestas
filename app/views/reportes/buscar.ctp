@@ -6,7 +6,9 @@ $paginator->options(array('update' => 'contenedorReportes',
                                        'action'=>'buscar')));
         //debug($reportes); 
 ?>
-
+<div class='row-fluid resultados'>
+        <div class='span12'><?php echo $this->Paginator->counter(array('format' => __('Pagina %page% de %pages%, mostrando %current% resultados de %count% en total.', true)));?></div>
+    </div>
 <div class="row-fluid" >
         
         <div class="span3" ><?php echo $this->Paginator->sort('Apellido','EncuestaVieja.apellido');?></div>
