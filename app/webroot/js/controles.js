@@ -3,7 +3,8 @@ function modales(id,clase){
     $(".cargando").modal({backdrop:'static'});
     $("body").append("<div id='"+id+"' class='modal hide fade in "+clase+"' ></div>");
     $("#"+id).on("hidden",function(){
-        $(this).remove();
+    	// modalId = $("#"+id);
+     //	$(modalId).remove();
     });
 }
 

@@ -7,7 +7,7 @@
 </div>
 
 <script type="text/javascript">
-
+var cont_preguntas = 0;
 var codigoOpciones = "<?php echo trim(str_replace("\"","'",preg_replace('/\s+/', ' ', $this->element("preguntas/opciones"))));  ?>";
 var templateOpciones = "<?php echo trim(str_replace("\"","'",preg_replace('/\s+/', ' ', $this->element("preguntas/opcionesTemplate")))); ?>";
 
@@ -31,6 +31,7 @@ $("#crearPregunta").on("click",".boton-agregar",function(event){
 $("#PreguntaTipoId").change(function(){
 		val = $(this).val();
 		switch(val){
+		   
 		   case "4":
 		   case "5":
 			   if($(".contenedor-opciones").length == 0){

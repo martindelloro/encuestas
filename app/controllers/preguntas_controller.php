@@ -2,7 +2,6 @@
 
 class PreguntasController extends AppController{
 	
-	
 	function listar(){
 		$preguntas = $this->Pregunta->find("All");
 		$this->set("preguntas",$preguntas);

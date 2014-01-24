@@ -35,6 +35,32 @@
 <div class="contenedor-preguntas"></div>
 </div>	
 
+<script type="text/javascript">
+	var contPreguntas = 1;
+	$(".contenedor-preguntas").on("click",".icon-arrow-up",function(){
+          var preguntaCambiar = $(this).parents('.pregunta');
+		  var moverPregunta = $(preguntaCambiar).prev('.pregunta');
+		  if(moverPregunta != null){
+			pos = $(moverPregunta).find('.orden').val();
+			$(preguntaCambiar).find('.orden').val(pos);
+			$(moverPregunta).before(preguntaCambiar);
+			$(moverPregunta).find('.orden').val(++pos); 		
+		  }	
+    });
+
+	$(".contenedor-preguntas").on("click",".icon-arrow-down",function(){
+       	  var preguntaCambiar = $(this).parents('.pregunta');
+		  var moverPregunta = $(preguntaCambiar).next('.pregunta');
+		  if(moverPregunta != null){
+			pos = $(moverPregunta).find('.orden').val();
+			alert(pos);
+			$(preguntaCambiar).find('.orden').val(pos);
+			$(moverPregunta).after(preguntaCambiar);
+			$(moverPregunta).find('.orden').val(--pos); 		
+		  }	
+  });
+
+</script>
 
 
 <?php echo $this->Js->writeBuffer(); ?>
