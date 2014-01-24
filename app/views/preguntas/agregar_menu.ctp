@@ -2,7 +2,7 @@
 $sustituye = array("\r\n", "\n\r", "\n", "\r");
 $elemento = str_replace($sustituye, "", $this->element("preguntas/agregar_menu"));
 $elemento = str_replace("</script>","<\/script>",$elemento);
-// echo $this->Mensajes->mostrar();
+echo $this->Mensajes->mostrar();
 ?>
 
 <script type="text/javascript">

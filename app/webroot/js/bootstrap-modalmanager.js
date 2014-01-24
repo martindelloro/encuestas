@@ -134,7 +134,7 @@
 		},
 
 		destroyModal: function (modal) {
-			// modal.destroy();
+			modal.destroy();
 
 			var hasOpenModal = this.hasOpenModal();
 			this.$element.toggleClass('modal-open', hasOpenModal);

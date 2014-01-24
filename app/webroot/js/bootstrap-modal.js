@@ -301,7 +301,7 @@
 		},
 
 		teardown: function () {
-			if (!this.$parent.length){
+			if (!this.$parent.length || this.$element.hasClass("volatil")){
 				this.$element.remove();
 				this.$element = null;
 				return;
@@ -310,7 +310,6 @@
 			if (this.$parent !== this.$element.parent()){
 				this.$element.appendTo(this.$parent);
 			}
-
 			this.$element.off('.modal');
 			this.$element.removeData('modal');
 			this.$element
