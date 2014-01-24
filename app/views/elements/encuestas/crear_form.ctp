@@ -17,9 +17,6 @@
 
 <div class="well titulo-general">
 	<span>Preguntas</span>
-	<?php echo $this->Ajax->link("<i class='icon-plus'> Agregar Pregunta</i>",array("controller"=>"preguntas","action"=>"crear"),array("class"=>"btn btn-inverse btn-mini","before"=>"modales('crearPregunta','modal-ficha')","complete"=>"fin_ajax('crearPregunta')","update"=>"crearPregunta","escape"=>false)); ?>
-	<?php echo $this->Form->input("id",array("type"=>"hidden")) ?>
-	<input id="EncuestaPreguntas" type="hidden" name="data[Preguntas]" value="" />
 </div>
 
 
@@ -30,35 +27,57 @@
 	<div class="span2 preguntas-label">
 		<div class="label">Tipo de la pregunta</div>
 	</div>
-	<div class="span2"></div>
+	<div class="span2">
+		<?php echo $this->Form->input("id",array("type"=>"hidden")) ?>
+	    <input id="EncuestaPreguntas" type="hidden" name="data[Preguntas]" value="" />
+		<?php echo $this->Ajax->link("<i class='icon-plus'> Agregar Pregunta</i>",array("controller"=>"preguntas","action"=>"listar"),array("class"=>"btn btn-inverse btn-mini","before"=>"modales('listarPreguntas','modal-ficha');preSeleccionadas = []","complete"=>"fin_ajax('listarPreguntas')","update"=>"listarPreguntas","escape"=>false)); ?>
+	</div>
 </div>
-<div class="contenedor-preguntas"></div>
+<div class="contenedor-preguntas well">
+
+<div style="position:absolute; bottom:0px;"></div>
+</div>
+	
 </div>	
 
 <script type="text/javascript">
 	var contPreguntas = 1;
 	$(".contenedor-preguntas").on("click",".icon-arrow-up",function(){
           var preguntaCambiar = $(this).parents('.pregunta');
-		  var moverPregunta = $(preguntaCambiar).prev('.pregunta');
-		  if(moverPregunta != null){
-			pos = $(moverPregunta).find('.orden').val();
+		  var preguntaRemplazar = $(preguntaCambiar).prev('.pregunta');
+		  if(preguntaRemplazar != null){
+			pos = $(preguntaRemplazar).find('.orden').val();
 			$(preguntaCambiar).find('.orden').val(pos);
-			$(moverPregunta).before(preguntaCambiar);
-			$(moverPregunta).find('.orden').val(++pos); 		
+			$(preguntaCambiar).find('.posicion').html(pos);
+			$(preguntaRemplazar).before(preguntaCambiar);
+			$(preguntaRemplazar).find('.orden').val(++pos);
+			$(preguntaRemplazar).find('.posicion').html(pos);		
 		  }	
     });
 
 	$(".contenedor-preguntas").on("click",".icon-arrow-down",function(){
        	  var preguntaCambiar = $(this).parents('.pregunta');
-		  var moverPregunta = $(preguntaCambiar).next('.pregunta');
-		  if(moverPregunta != null){
-			pos = $(moverPregunta).find('.orden').val();
-			alert(pos);
+		  var preguntaRemplazar = $(preguntaCambiar).next('.pregunta');
+		  if(preguntaRemplazar != null){
+			pos = $(preguntaRemplazar).find('.orden').val();
 			$(preguntaCambiar).find('.orden').val(pos);
-			$(moverPregunta).after(preguntaCambiar);
-			$(moverPregunta).find('.orden').val(--pos); 		
+			$(preguntaCambiar).find('.posicion').html(pos);
+			$(preguntaRemplazar).after(preguntaCambiar);
+			$(preguntaRemplazar).find('.orden').val(--pos);
+			$(preguntaRemplazar).find('.posicion').html(pos); 		
 		  }	
-  });
+    });
+
+    $(".contenedor-preguntas").on("click",".icon-remove",function(){
+       	  actualizarPos = $(this).parents(".pregunta").nextAll(".pregunta");	
+		  $(this).parents(".pregunta").remove();
+		  --contPreguntas;
+		  $(actualizarPos).each(function(){
+				orden = $(this).find(".orden").val();
+				$(this).find(".orden").val(--orden);
+				$(this).find(".posicion").html(orden);
+		  });
+        });
 
 </script>
 

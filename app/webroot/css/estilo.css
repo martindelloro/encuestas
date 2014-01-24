@@ -376,6 +376,13 @@ body .mensaje-contenido{
 }
 
 
+/*************************************************/
+/*********   FICHA LISTAR PREGUNTAS     **********/
+/*************************************************/
+
+#listarPreguntas .pagination{
+	max-width: 385px;
+}
 
 /*************************************************/
 /*********    FICHA CREAR PREGUNTAS     **********/
@@ -435,6 +442,12 @@ body .mensaje-contenido{
 /*********     CONTENEDOR PREGUNTAS     **********/
 /*************************************************/
 
+.contenedor-preguntas {
+	padding:2px !important;
+	height:100% !important;
+	min-height:300px !important;
+}
+
 .preguntas-label .label{
 	padding: 5px 0;
     text-align: center;
@@ -444,6 +457,14 @@ body .mensaje-contenido{
 .preguntas-label {
 	border-bottom: 2px solid #702834;
 	}
+
+.contenedor-preguntas .posicion{
+	float: left; 
+	margin-left: 5px; 
+	border-right:2px solid #702834;
+	padding:0px 4px 0px 0px;
+	min-width:16px;
+}
 
 .contenedor-preguntas .pregunta{
 	margin-top:4px;
@@ -475,6 +496,12 @@ body .mensaje-contenido{
 }
 
 .botones a{
+	float:right;
+	margin-top:4px;
+	margin-left:4px;
+}
+
+.botones input[type="checkbox"]{
 	float:right;
 	margin-top:4px;
 	margin-left:4px;
@@ -654,7 +681,8 @@ body .mensaje-contenido{
 /*************************************************/
 
 .pagination {
-	margin:0px !important;
+	margin:0px auto !important;
+	
 }
 
 .pagination a{

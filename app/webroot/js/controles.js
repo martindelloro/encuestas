@@ -1,11 +1,9 @@
+var preSeleccionadas = [];
 
 function modales(id,clase){
-    $(".cargando").modal({backdrop:'static'});
+	$('body').modalmanager('loading');
     $("body").append("<div id='"+id+"' class='modal volatil hide fade in "+clase+"' ></div>");
-    $("#"+id).on("hidden",function(){
-    	// modalId = $("#"+id);
-     //	$(modalId).remove();
-    });
+    
 }
 
 function inicia_ajax(){
@@ -39,6 +37,19 @@ function isInArray(needle, haystack) {
         if(haystack[i] == needle) return true;
     }
     return false;
+}
+
+function actualizarCheckbox(){
+	preguntas = $("#preguntasListado").find(".pregunta");
+	preguntas.each(function(){
+		Pregunta = this;
+		idPregunta = $(this).find(":checkbox").val();
+		$(preSeleccionadas).each(function(){
+			if(this.id == idPregunta){
+				$(Pregunta).find(":checkbox").prop("checked",true);				
+			}	
+		});
+	});
 }
 
 

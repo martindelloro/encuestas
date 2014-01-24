@@ -3,8 +3,29 @@
 class PreguntasController extends AppController{
 	
 	function listar(){
-		$preguntas = $this->Pregunta->find("All");
-		$this->set("preguntas",$preguntas);
+		$this->paginate = array(
+				"order"=>"Pregunta.nombre ASC",
+				'recursive' => 0,
+				'limit'=>"20"
+		);
+		$this->set("preguntas",$this->paginate("Pregunta"));
+	}
+	
+	function buscar(){
+		$this->paginate = array(
+				"order"=>"Pregunta.nombre ASC",
+				'recursive' => 0
+		);
+		
+		$busqueda = array();
+				
+		if(empty($this->data)) {
+			$this->data = $this->Session->read("busqueda");
+		}
+		else {
+			$this->Session->write("busqueda", $this->data);
+		}
+		
 	}
 	
 	function crear(){
