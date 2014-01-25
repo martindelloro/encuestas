@@ -20,4 +20,14 @@
 
 <?php echo $this->Js->writeBuffer(); ?>
 
+<script type="text/javascript">
+	$("#preguntasPre").on("click",".icon-remove",function(){
+		preguntaId = $(this).parents(".pregunta").data("id");
+		$(this).parents(".pregunta").remove();
+		preSeleccionadas.splice(preguntaId,1);
+		$("#preguntasListado input[value='"+preguntaId+"']").prop("checked",false);
+	});
+	
+</script>
+
 </div> <!-- FIN DIV TAB-PANE PRESELECCIONADAS  -->

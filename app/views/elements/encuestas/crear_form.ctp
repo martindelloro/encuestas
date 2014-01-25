@@ -30,7 +30,7 @@
 	<div class="span2">
 		<?php echo $this->Form->input("id",array("type"=>"hidden")) ?>
 	    <input id="EncuestaPreguntas" type="hidden" name="data[Preguntas]" value="" />
-		<?php echo $this->Ajax->link("<i class='icon-plus'> Agregar Pregunta</i>",array("controller"=>"preguntas","action"=>"listar"),array("class"=>"btn btn-inverse btn-mini","before"=>"modales('listarPreguntas','modal-ficha');preSeleccionadas = []","complete"=>"fin_ajax('listarPreguntas')","update"=>"listarPreguntas","escape"=>false)); ?>
+		<?php echo $this->Ajax->link("<i class='icon-plus'> Agregar Pregunta</i>",array("controller"=>"preguntas","action"=>"listar"),array("class"=>"btn btn-inverse btn-mini","before"=>"modales('listarPreguntas','modal-ficha');preSeleccionadas = {}","complete"=>"fin_ajax('listarPreguntas')","update"=>"listarPreguntas","escape"=>false)); ?>
 	</div>
 </div>
 <div class="contenedor-preguntas well">

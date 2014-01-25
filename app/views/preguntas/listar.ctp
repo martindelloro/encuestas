@@ -1,6 +1,7 @@
 <div class="modal-header header-ficha azul">
     <div class="botonera-header">
         <?php echo $this->Ajax->link("<i class='icon-plus'> Crear Pregunta</i>",array("controller"=>"preguntas","action"=>"crear"),array("class"=>"btn btn-inverse","before"=>"modales('crearPregunta','modal-ficha')","complete"=>"fin_ajax('crearPregunta')","update"=>"crearPregunta","escape"=>false)); ?>
+        <button class="btn btn-inverse btnGuardarSelecc"><i class='icon-save icon-white'></i> Guardar Seleccion</button>
         <?php echo $this->Html->link("<i class='icon-white icon-remove-sign'></i>","#",array("class"=>"btn btn-inverse","data-dismiss"=>"modal","escape"=>false)) ?>
     </div>
 </div>
@@ -18,3 +19,25 @@
 		</div>
      </div>
 </div>
+
+
+<?php 
+	$sustituye = array("\r\n", "\n\r", "\n", "\r");
+	$elemento = str_replace($sustituye, "", $this->element("preguntas/agregar_menu"));
+	$elemento = str_replace("</script>","<\/script>",$elemento); 
+?>
+
+<script type="text/javascript">
+	templatePregunta = '<?php echo trim(str_replace("'","\"",$elemento)); ?>';
+	$(".btnGuardarSelecc").bind("click",function(){
+		$.each(preSeleccionadas,function(index){
+			preSeleccionadas[index].orden = contPreguntas;
+			var templateP = Hogan.compile(templatePregunta);
+			var procesado = templateP.render(preSeleccionadas[index]);
+			$(procesado).appendTo(".contenedor-preguntas");
+			++contPreguntas;
+		});
+		$("#listarPreguntas").modal('hide');	
+    });
+
+</script>

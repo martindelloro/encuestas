@@ -44,7 +44,7 @@ $paginator->options(array("update"=>"#listarPreguntas","before"=>"$('body').moda
 
 <div class="contenedor-preguntas" id="preguntasListado">
 <?php foreach($preguntas as $pregunta): ?>
-<div class="row-fluid pregunta" id="Pregunta<?php echo $pregunta["Pregunta"]["id"] ?>">
+<div class="row-fluid pregunta" id="Pregunta<?php echo $pregunta["Pregunta"]["id"] ?>" data-nombre="<?php echo $pregunta["Pregunta"]["nombre"] ?>" data-tipo="<?php echo $pregunta["Tipo"]["nombre"] ?>" data-id="<?php echo $pregunta["Pregunta"]["id"] ?>">
 	<div class="span8"><?php echo $pregunta["Pregunta"]["nombre"] ?></div>
 	<div class="span2"><?php echo $pregunta["Tipo"]["nombre"] ?></div>
 	<div class="span2 botones">
@@ -57,28 +57,27 @@ $paginator->options(array("update"=>"#listarPreguntas","before"=>"$('body').moda
 <?php endforeach; ?>
 </div>
 
+
 <?php echo $this->Js->writeBuffer(); ?>
 
 <script type="text/javascript">
+
 	$("#preguntasListado").on("click",":checkbox",function(){
 		idPregunta = $(this).val();
 		if($(this).prop("checked") != false){
 			clonada = $(this).parents(".pregunta").clone();
 			$(clonada).find(":checkbox").remove();
 			$("#preguntasPre").append(clonada);
-			preSeleccionadas.push({id:idPregunta});
-		}
+			nombre = $(this).parents(".pregunta").data("nombre");
+			tipo   = $(this).parents(".pregunta").data("tipo"); 
+			preSeleccionadas[idPregunta]  = {id:idPregunta,pregunta_id:idPregunta, nombre:nombre, tipo:tipo};
+	    }
 		else{
 			$("#preguntasPre").find("#Pregunta"+idPregunta).remove();
 			$(this).prop("checked",false);
-			preSeleccionadas.each(function(){
-				if(this.id == idPregunta){
-				   this.remove();	
-				}
-			});
-		}
-		
-	});
+			preSeleccionadas.splice(idPregunta,1);
+			}
+		});
 	
 	 
 </script>

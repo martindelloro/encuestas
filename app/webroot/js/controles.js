@@ -1,4 +1,4 @@
-var preSeleccionadas = [];
+var preSeleccionadas = {};
 
 function modales(id,clase){
 	$('body').modalmanager('loading');
@@ -41,11 +41,11 @@ function isInArray(needle, haystack) {
 
 function actualizarCheckbox(){
 	preguntas = $("#preguntasListado").find(".pregunta");
-	preguntas.each(function(){
+	preguntas.each(function(index){
 		Pregunta = this;
 		idPregunta = $(this).find(":checkbox").val();
-		$(preSeleccionadas).each(function(){
-			if(this.id == idPregunta){
+		$.each(preSeleccionadas,function(index){
+			if(preSeleccionadas[index].id == idPregunta){
 				$(Pregunta).find(":checkbox").prop("checked",true);				
 			}	
 		});
