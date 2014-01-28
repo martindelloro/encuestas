@@ -137,15 +137,12 @@
 			modal.destroy();
 
 			var hasOpenModal = this.hasOpenModal();
-
 			this.$element.toggleClass('modal-open', hasOpenModal);
 
 			if (!hasOpenModal){
-				this.$element.removeClass('page-overflow');
+			   this.$element.removeClass('page-overflow');
 			}
-
 			this.removeContainer(modal);
-
 			this.setFocus();
 		},
 

@@ -242,10 +242,7 @@
       $.support.transition && this.$tip.hasClass('fade') ?
         removeWithAnimation() :
         $tip.detach()
-        
-     // this.$element.trigger('hidden')
-
-      return this
+       return this
     }
 
   , fixTitle: function () {
