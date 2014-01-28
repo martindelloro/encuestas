@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="">
-
+<link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
 <meta name="author" content="">
 <?php $title_for_layout = "Sistema de Seguimiento de Graduados de la Universidad Lanus"; ?>
 <title><?php echo $title_for_layout?></title>
@@ -34,7 +34,7 @@ echo $javascript->link("typeahead");
 echo $javascript->link("bootstrap-tooltip");
 
 ?>
-<link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 </head>

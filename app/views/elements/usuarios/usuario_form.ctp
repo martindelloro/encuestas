@@ -1,3 +1,28 @@
+<script>
+      $(document).ready(function () {
+          $("#UsuarioNombre").keyup(function () {
+              var value = $(this).val();
+              $("#UsuarioNombre2").val(value);
+          });
+          $("#UsuarioApellido").keyup(function () {
+              var value = $(this).val();
+              $("#UsuarioApellido2").val(value);
+          });
+          $("#UsuarioDni").keyup(function () {
+              var value = $(this).val();
+              $("#UsuarioDni2").val(value);
+          });
+          $("#UsuarioFechaNac").keyup(function () {
+              var value = $(this).val();
+              $("#UsuarioFechaNac2").val(value);
+          });
+           $("#UsuarioUsuario").keyup(function () {
+              var value = $(this).val();
+              $("#UsuarioUsuario2").val(value);
+          });
+      });
+</script>
+<div id="usuario" class="tab-pane active">
 <?php $roles=array("admin"=>"Administrador",
                    "graduado"=>"Graduado",
                     "direccion"=>"Secretarías"); 
@@ -5,8 +30,11 @@
       $departamentos=array("Seleccione una Provincia");
       $localidades=array("Seleccione un Departamento");
           
-?>      
-<p><b>Crear Nuevo Usuario</b></p>
+?>
+<div class="well titulo-general">
+	<span>Crear Nuevo Usuario</span>
+</div>
+
 <div class="row-fluid">
     <div class="span3"><?php echo $this->Form->input("usuario",array("type"=>'text',"label"=>"Nombre de Usuario")); ?></div>
     <div class="span3"><?php echo $this->Form->input("nombre",array("type"=>'text',"label"=>"Nombre")); ?></div>
@@ -16,7 +44,7 @@
 <div class="row-fluid">
     <div class="span3"><?php echo $this->Form->input("password",array("type"=>'password',"label"=>"Password")); ?></div>
     <div class="span3"><?php echo $this->Form->input("password_rep",array("type"=>'password',"label"=>"Repetir Password")); ?></div>
-    <div class="span3"><?php echo $this->Form->input("fecha_nac",array("type"=>'text',"label"=>"Fecha de Nacimiento")); ?></div>
+    <div class="span3"><?php echo $this->Form->input("fecha_nac",array("type"=>'text',"label"=>"Fecha de Nac")); ?></div>
     <div class="span3"><?php echo $this->Form->input("rol",array("type"=>'select',"options"=>$roles, "label"=>"Rol")); ?></div>
 </div>
 
@@ -26,4 +54,5 @@
 </div>
     
 <?php echo $this->Mensajes->mostrar();  ?>
+</div>
 <?php echo $this->Js->writeBuffer() ?>

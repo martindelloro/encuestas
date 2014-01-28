@@ -1,3 +1,5 @@
+<div id="datosUser" class="tab-pane">
+
 <?php $roles=array("admin"=>"Administrador",
                    "graduado"=>"Graduado",
                     "direccion"=>"Secretarías"); 
@@ -7,17 +9,16 @@
             
 ?>      
 <div class="well titulo-general">
-	<span>Datos de Usuario</span>
+	<span>Datos del Usuario: <?php echo $this->Form->input("usuario2",array("type"=>'text',"label"=>false, "readonly"=>"readonly")); ?></span>
 </div>
-
 <div class="row-fluid">
-    <div class="span3"><?php echo $this->Form->input("nombre",array("type"=>'text',"label"=>"Nombre")); ?></div>
-    <div class="span3"><?php echo $this->Form->input("apellido",array("type"=>'text',"label"=>"Apellido")); ?></div>
+    <div class="span3"><?php echo $this->Form->input("nombre2",array("type"=>'text',"label"=>"Nombre","readonly"=>"readonly")); ?></div>
+    <div class="span3"><?php echo $this->Form->input("apellido2",array("type"=>'text',"label"=>"Apellido","readonly"=>"readonly")); ?></div>
  
 </div>
 <div class="row-fluid">
-    <div class="span3"><?php echo $this->Form->input("dni",array("type"=>'text',"label"=>"DNI")); ?></div>
-    <div class="span3"><?php echo $this->Form->input("fecha_nac",array("type"=>'text',"label"=>"Fecha de Nacimiento")); ?></div> 
+    <div class="span3"><?php echo $this->Form->input("dni2",array("type"=>'text',"label"=>"DNI","readonly"=>"readonly")); ?></div>
+    <div class="span3"><?php echo $this->Form->input("fecha_nac2",array("type"=>'text',"label"=>"Fecha de Nacimiento","readonly"=>"readonly")); ?></div> 
 </div>
 <p><b>Lugar de Residencia</b></p>
 <div class="row-fluid">
@@ -76,7 +77,9 @@
 </div>
 <div class="row-fluid">
     <?php echo $this->Ajax->submit("Guardar Datos", array("url"=>array("controller"=>'usuarios',"action"=>'datos_usuario'),"update"=>"crear_usuario", "before"=>"inicia_ajax()","complete"=>"fin_ajax()")); ?>
+    
     <?php echo $this->Js->writeBuffer() ?>
 </div>
     
 
+	
