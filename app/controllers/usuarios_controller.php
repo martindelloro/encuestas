@@ -5,25 +5,12 @@ class UsuariosController extends AppController {
     var $userData = array();
     var $OUsuario=null;
     var $usuarios=null;
-    //var $components = array("checkLogin");
-    
-    /**
-     * Tipos de sexos para el select
-     * @var Array
-     */
- 
-    
-    
-    /**
-     * Carga el formulario de No Respuesta
-     * 
-     * @param integer $id El id de la encuesta
-     * @param boolean $desde_ver_estado Da una señal indicando si se accedio desde la vista ver_estado (verdadero) o desde el listar (false)
-     */
+
+
     function  crear_usuario(){
         if(!empty($this->data)){
             if($this->data['Usuario']['password']==$this->data['Usuario']['password_rep']){
-                $this->data['Usuario']['password']=md5($this->data['Usuario']['password']);
+                $this->data['Usuario']['password']=md5($this->data['Usuario']['password']); //lo seteo para que lo guarde con seguridad md5
                 if($this->Usuario->save($this->data)){ //SI GUARDA
                         $this->Session->setFlash("El usuario se ha guardado con éxito",null,null,"mensaje_sistema");
                         //debug($this->data);
@@ -41,14 +28,24 @@ class UsuariosController extends AppController {
     }
 
     function login(){
+        
         try{
           //$this->OUsuario = Login($this->data['User']['usuario'],md5($this->data['User']['password']));
-            $usuarios=$this->Usuario->find('all');
-            debug($usuarios);
-            
-            if($this->data['User']['usuario']){
-                
+            $OUsuario=$this->Usuario->findByUsuario($this->data['User']['usuario']);
+           //debug($usuario);
+            if ($OUsuario!=""){
+                if(md5($this->data['User']['password']) == $OUsuario['Usuario']['password']){
+                    //echo "esta todo bien"; //acá tiene que cargar los menues para distintos tipos de usuario
+                    $this->Session->Write($OUsuario);
+                    $this->set('OUsuario',$OUsuario);
+                    
+                }else{
+                    $this->Session->setFlash("ERROR-Verifique usuario/contraseña",null,null,"mensaje_sistema");
+                }
+            }else{
+                    $this->Session->setFlash("ERROR-Verifique usuario/contraseña",null,null,"mensaje_sistema");
             }
+            
         }catch(LoginException $e){
           $this->Session->setFlash($e->getMessage(),'error_usuario',null,'mensaje_sistema');
         }
@@ -67,10 +64,11 @@ class UsuariosController extends AppController {
      }
 
      function logout(){
-     Login::logOutUsuario();
-     $this->autoRender = false;
-     $this->Session->destroy();
-     $this->redirect(array('controller'=>'escuelas','action'=>'index'));
+        $this->Session->destroy();
+        //$this->Cookie->destroy();
+        //$this->autoRender = false;
+        
+        $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
      }
 
 

@@ -15,6 +15,12 @@ class Usuario extends AppModel {
                                 'rule' => 'numeric',
                                 'message' => 'El DNI tiene que ser numérico',
                                 'allowEmpty' => false
+                          ),
+                          'password' => array(
+                                'rule'=>'notEmpty',
+                                'message' => 'La contraseña no puede estar vacía',
+                                 'allowEmpty' => false
+                                
                           )
 );
         
