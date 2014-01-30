@@ -1,19 +1,8 @@
 <?php
 echo $this->Mensajes->mostrar();
+$OUsuario = $this->Session->read('Usuario');
 
-    if(isset($OUsuario)){
-        //debug($OUsuario);
-    }else{
-        $OUsuario=null;
-    }
-
-try{
-
-
-}
-catch(LoginException $e){
-        $OUsuario == null;
-} 
+ 
 ?>
 
 <div id="login_usuario">
@@ -30,7 +19,7 @@ catch(LoginException $e){
             </div>
        <?php  else: ?>
          <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon-user icon-white"></i>
-             <?php echo $OUsuario['Usuario']['nombre']." ".$OUsuario['Usuario']['apellido'];  ?><strong class="caret"></strong></a>
+             <?php echo $OUsuario['nombre']." ".$OUsuario['apellido'];  ?><strong class="caret"></strong></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                 <?php echo $this->Html->link("Salir",array("controller"=>"usuarios","action"=>"logout"),array("class"=>"btn btn-info")); ?>
             </div>
@@ -42,10 +31,11 @@ catch(LoginException $e){
 <?php echo $this->Js->writeBuffer(); ?>
 <?php if(isset($redirect)): ?>
 <script type="text/javascript">
-        window.location.reload();
+       $('body').modalmanager('loading');
+       location.reload();
 </script>
 
-                                                                                                                              1,1      Comienzo
+<?php endif; ?>                                                                                               
 
 
-<?php endif; ?>
+

@@ -13,6 +13,6 @@
 		<i class='icon-arrow-up boton-posicion'></i>
 		<i class='icon-arrow-down boton-posicion'></i>
 	</div>
-	<input type='hidden' id='EncuestaPreguntas{{pregunta_id}} ?>' value={{pregunta_id}} name='data[Preguntas][{{pregunta_id}}][pregunta_id]' />
+	<input type='hidden' id='<? EncuestaPreguntas{{pregunta_id}} ?>' value={{pregunta_id}} name='data[Preguntas][{{pregunta_id}}][pregunta_id]' />
 	<input type='hidden' value={{orden}} name='data[Preguntas][{{pregunta_id}}][orden]' class="orden" />
 </div>

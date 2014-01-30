@@ -38,7 +38,7 @@ class UsuariosController extends AppController {
                     //echo "esta todo bien"; //acá tiene que cargar los menues para distintos tipos de usuario
                     $this->Session->Write($OUsuario);
                     $this->set('OUsuario',$OUsuario);
-                    
+                    //$this->render('../pages/inicio');
                 }else{
                     $this->Session->setFlash("ERROR-Verifique usuario/contraseña",null,null,"mensaje_sistema");
                 }
@@ -50,14 +50,9 @@ class UsuariosController extends AppController {
           $this->Session->setFlash($e->getMessage(),'error_usuario',null,'mensaje_sistema');
         }
 
-        if($this->OUsuario != null){
-            foreach($this->OUsuario->getAtributos('legajo','ficha') as $atributo){
-                $nombre_corto = $atributo->getValor();
-                $ficha = $this->Escuela->Ficha->FichaEscuela->find("list",array("conditions"=>array("FichaEscuela.nombre_corto"=>$nombre_corto),"fields"=>array("nombre_corto","nombre")));
-                $this->fichas += $ficha;
-                }
-            asort($this->fichas);
-            $this->Session->write("fichas",$this->fichas);
+        if($OUsuario != null ) {
+            $this->Session->Write($OUsuario);
+            $this->set('OUsuario',$OUsuario);
             $this->set("redirect",true);
         }
 
@@ -67,7 +62,6 @@ class UsuariosController extends AppController {
         $this->Session->destroy();
         //$this->Cookie->destroy();
         //$this->autoRender = false;
-        
         $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
      }
 

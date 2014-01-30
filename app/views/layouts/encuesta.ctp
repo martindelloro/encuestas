@@ -54,14 +54,14 @@ echo $javascript->link("bootstrap-tooltip");
                 <div class="nav-collapse collapse">
                      <?php
                       unset($OUsuario);
-                      $OUsuario=$this->Session->read('Usuario.rol');
+                      $OUsuario=$this->Session->read('Usuario');
                       
-                      //debug($OUsuario);
+                      // debug($OUsuario);
                       
                       if (!$OUsuario){
                           echo $this->element("../usuarios/login");
                       }else{    
-                        switch ($OUsuario){
+                        switch ($OUsuario['rol']){
                             case "admin" :
                                 //echo "entro acá";
                                 echo $this->element("usuarios/menu_usuario");
@@ -81,6 +81,7 @@ echo $javascript->link("bootstrap-tooltip");
                         }
                       
                       }
+                      
                         
                      ?>
                     <?php /* echo $this->element("usuarios/menu_usuario") ?>
@@ -88,6 +89,7 @@ echo $javascript->link("bootstrap-tooltip");
                     <?php echo $this->element("encuestas/encuesta") ?>
                     <?php echo $this->element("reportes/reportes") ?>
                     <?php echo $this->element("../usuarios/login") */ ?>
+                        
                 </div>
                 </div>
             </div>

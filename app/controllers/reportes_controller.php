@@ -5,17 +5,16 @@ class ReportesController extends AppController{
         
         function generar_reportes(){
             $listado=$this->ListadoCarrera->find("list");
-            $sexo=array('F'=>'F',
-                        'M'=>'M');
-            $cohorte=array("la");
+            $variables=array("Listado de Variables" => "Listado de Variables");
+            $filtros=array("Listado de Filtros" => "Listado de Filtros");
             $anio_emision=array("2008"=>'2008',
                                 "2009"=>'2009');
             $datos=$this->Reporte->find('all');
             
-            $this->set('sexo',$sexo);
+            $this->set('variables',$variables);
             $this->set('listado',$listado);
             $this->set('anio_emision',$anio_emision);
-            $this->set('cohorte',$cohorte);
+          $this->set('filtros',$filtros);
         }
         
 	function buscar(){
