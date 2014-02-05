@@ -65,7 +65,6 @@ echo $javascript->link("bootstrap-tooltip");
                             case "admin" :
                                 //echo "entro acá";
                                 echo $this->element("usuarios/menu_usuario");
-                                echo $this->element("usuarios/datos_usuario");
                                 echo $this->element("encuestas/encuesta");
                                 echo $this->element("reportes/reportes");
                                 echo $this->element("../usuarios/login");

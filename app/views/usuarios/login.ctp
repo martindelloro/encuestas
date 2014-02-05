@@ -22,7 +22,9 @@ $OUsuario = $this->Session->read('Usuario');
              <?php echo $OUsuario['nombre']." ".$OUsuario['apellido'];  ?><strong class="caret"></strong></a>
             <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                 <?php echo $this->Html->link("Salir",array("controller"=>"usuarios","action"=>"logout"),array("class"=>"btn btn-info")); ?>
-            </div>
+                <div> .</div>
+            </div
+           
 
        <?php endif; ?>
 </li>

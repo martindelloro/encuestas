@@ -24,11 +24,10 @@ class UsuariosController extends AppController {
     }
     
     function datos_usuario(){
-        
+        //debug($this->data);
     }
 
-    function login(){
-        
+    function login(){        
         try{
           //$this->OUsuario = Login($this->data['User']['usuario'],md5($this->data['User']['password']));
             $OUsuario=$this->Usuario->findByUsuario($this->data['User']['usuario']);
@@ -60,9 +59,52 @@ class UsuariosController extends AppController {
 
      function logout(){
         $this->Session->destroy();
-        //$this->Cookie->destroy();
-        //$this->autoRender = false;
         $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
+     }
+     
+     function buscar_usuario(){
+         $tipo_usuario=array("admin"=>"Administrador",
+                             "graduado"=>"Graduado",
+                             "direccion"=>"Dirección");
+         $this->set('tipo_usuario',$tipo_usuario);
+     }
+
+     function buscar(){
+        if(empty($this->data)){
+                $this->data = $this->Session->read('buscar');
+              }
+              else{
+                $this->Session->write('buscar',$this->data);
+              }
+              $buscar = array();
+              
+              //debug($this->data);
+             
+              if(!empty($this->data['buscar']['usuario'])){
+                  $buscar['Usuario.usuario ilike'] = '%'.$this->data['buscar']['usuario'].'%';
+              }
+              if(!empty($this->data['buscar']['nombre'])){
+                  $buscar['Usuario.nombre ilike'] = '%'.$this->data['buscar']['nombre'].'%';
+              }
+              if(!empty($this->data['buscar']['apellido'])){
+                  $buscar['Usuario.apellido ilike'] = '%'.$this->data['buscar']['apellido'].'%';
+              }
+              if(!empty($this->data['buscar']['mail'])){
+                  $buscar['Usuario.email_1 ilike'] = '%'.$this->data['buscar']['mail'].'%';
+              }
+              if(!empty($this->data['buscar']['tipo_usuario'])){
+                  $buscar['Usuario.rol ilike'] = '%'.$this->data['buscar']['tipo_usuario'].'%';
+              }
+              //debug($buscar);
+              $this->paginate = array("order"=>"Usuario.apellido ASC","fields"=>array('Usuario.usuario','Usuario.apellido','Usuario.nombre','Usuario.email_1', 'Usuario.id'),'conditions'=>$buscar);
+              $this->set('usuarios',$this->paginate("Usuario"));
+         
+     }
+     function ver(){
+         
+     }
+     function editar(){
+         
      }
 
 
