@@ -74,3 +74,12 @@ function armar_ajax(evento,elemento){
 	evento.stopPropagation();
 	
 }
+function activar_campo(valor){
+    actual = $(valor).attr('disabled');
+    if(actual == true){
+        $(valor).attr({'disabled':false});
+    }
+    else{
+        $(valor).attr({'disabled':true});
+    }
+}

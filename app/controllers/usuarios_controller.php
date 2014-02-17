@@ -24,7 +24,19 @@ class UsuariosController extends AppController {
     }
     
     function datos_usuario(){
-        //debug($this->data);
+        //echo "entro aca";
+        $roles=array("admin"=>"Administrador",
+                   "graduado"=>"Graduado",
+                    "direccion"=>"Secretarías"); 
+        $provincias=array("Ciudad de Buenos Aires","Buenos Aires","Catamarca","Chaco","Chubut","Córdoba","Corrientes","Entre Rios","Formosa","Jujuy","La Pampa","La Rioja","Mendoza","Misiones","Neuquén","Río Negro","Salta","San Juan","San Luis","Santa Cruz","Santa Fe","Santiago del Estero","Tierra del Fuego","Tucumán");
+        $departamentos=array("Seleccione una Provincia");
+        $localidades=array("Seleccione un Departamento");
+         $Ousuario=$this->Session->read();
+         $this->set('Ousuario',$Ousuario);
+         $this->set('provincias',$provincias);
+         $this->set('roles',$roles);
+         $this->set('departamentos',$departamentos);
+         $this->set('localidades',$localidades);
     }
 
     function login(){        
@@ -100,11 +112,15 @@ class UsuariosController extends AppController {
               $this->set('usuarios',$this->paginate("Usuario"));
          
      }
-     function ver(){
-         
+     function ver($id){
+         $usuario=$this->Usuario->findById($id);
+         //debug($usuario);
+         $this->set("usuario",$usuario);
      }
-     function editar(){
-         
+     function editar($id){
+         $usuario=$this->Usuario->findById($id);
+         //debug($usuario);
+         $this->set("usuario",$usuario);
      }
 
 
