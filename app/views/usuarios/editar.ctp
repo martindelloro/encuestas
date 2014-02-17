@@ -1,5 +1,31 @@
 <?php 
-            
+  /*          <tr>
+                                   <td  colspan="3">
+                               <?php  if(empty($this->data["Encuesta"]["cod_cic"])){echo $this->Form->input("Encuesta.cod_cic",array("type"=>"hidden","label"=>false,'value'=>$cucic));} ?>
+                               <?php echo $form->input("Encuesta.id",array("type"=>"hidden"));  ?>
+                           </td>
+               </tr>
+                                <tr>
+                   <td colspan="3">
+                           <div class="label_nom_cic">
+                                   <label for="nombre_cic">Nombre CIC <input type='checkbox' onclick="activar_campo('#EncuestaNombreCic')"</label>
+
+                           </div>
+                   <?php echo $this->Form->input("nombre_cic",array("type"=>"textarea","label"=>false,'disabled'=>true)); ?></td>
+               </tr>
+
+                           <tr><td colspan="3">&nbsp;</td></tr>
+<!-- ---------------------------------------------------------- ---------------------- ---------------------------- -->
+
+               <tr><th colspan="3" class="ficha" >Datos Localización</th></tr>
+               <tr>
+                   <td colspan="3"><div class="label_datos_localizacion"><label for="datos_localizacion">Datos Localización <input type='checkbox' onclick="activar_campo('#EncuestaDatosLocalizacion')" /></label>
+
+                   <?php echo $this->Form->input("Encuesta.datos_localizacion",array("type"=>"textarea","label"=>false,'disabled'=>true)); ?></td>
+                                </tr>
+                                <tr>
+
+*/
 ?>      
 <div class="well titulo-general">
 	<span>Datos de Usuario: <?php echo $usuario['Usuario']['nombre'].' '.$usuario['Usuario']['apellido']; ?></span>
@@ -41,7 +67,12 @@
         <div class="row-fluid span2"><b>Localidad:</b></div>
                         <div class="span3"><?php // echo $usuario['Usuario']['dni']; ?>&nbsp;</div>
     
-     
+     <div class="label_calle">
+                                 <label for="calle">Calle <input type='checkbox' onclick="activar_campo('#EncuestaNombreCic')"</label>
+
+                           </div>
+                   <?php echo $this->Form->input("nombre_cic",array("type"=>"textarea","label"=>false,'disabled'=>true)); ?></td>
+
          <div class="row-fluid span2"><b>Calle:</b></div>
                         <div class="span3"><?php echo $usuario['Usuario']['calle']; ?>&nbsp;</div>
      </div>

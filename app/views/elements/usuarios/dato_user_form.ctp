@@ -76,7 +76,7 @@
     <div class="span3"><?php echo $this->Form->input("cohorte_graduacion",array("type"=>'text',"label"=>"Cohorte Graduación")); ?></div>
 </div>
 <div class="row-fluid">
-    <?php echo $this->Ajax->submit("Guardar Datos", array("url"=>array("controller"=>'usuarios',"action"=>'datos_usuario'),"update"=>"crear_usuario", "before"=>"inicia_ajax()","complete"=>"fin_ajax()")); ?>
+    <?php echo $this->Ajax->submit("Guardar Datos", array("url"=>array("controller"=>'usuarios',"action"=>'crear_usuario'),"update"=>"crear_usuario", "before"=>"inicia_ajax()","complete"=>"fin_ajax()")); ?>
     
     <?php echo $this->Js->writeBuffer() ?>
 </div>

@@ -214,7 +214,16 @@ body .mensaje-contenido{
 .busqueda-usuario input{
 	width:100%;
 }
-
+.paginador{
+	background-color: #E9967A !important;
+    color: #FFFFFF;
+    font-family: "Helvetica";
+    font-weight: bold;
+    margin-bottom: 2px !important;
+    padding: 5px !important;
+    text-align: center;
+	
+}
 /********** RESULTADOS BUSQUEDA *********/
 
 
@@ -701,7 +710,15 @@ body .mensaje-contenido{
     color: white !important;
     font-weight:bold;
 }
-
+.tabla_titulo{
+    	background-color:#696969 !important;
+	color:white;
+	font-weight: bold;
+        border-style:solid;
+}
+.centro{
+    text-align: center;
+}
 /*************************************************/
 /**************  TYPEAHEAD TUNEADO  **************/
 /*************************************************/

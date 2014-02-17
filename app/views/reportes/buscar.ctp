@@ -38,6 +38,12 @@ $paginator->options(array('update' => 'contenedorReportes',
         <?php echo $this->Paginator->next($this->Html->image('bot_siguiente.jpg'), array('escape'=>false), null, array('class' => 'disabled','escape'=>false));?>
     </div>
 </div>  
+<br>
+<div class="btn-group" style="align:center">
+  <button type="button" class="btn btn-primary">Generar Gráfico Circular</button>
+  <button type="button" class="btn btn-primary">Generar Gráfico de Barras</button>
+  <button type="button" class="btn btn-primary">Exportar a PDF</button>
+</div>
 
 
 <?php echo $this->Js->writeBuffer(); ?>

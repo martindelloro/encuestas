@@ -42,7 +42,7 @@ echo $javascript->link("bootstrap-tooltip");
     
     <?php echo $this->element("mensaje_sistema"); ?>
     <?php echo $this->element("cargando"); ?>
-    
+
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
@@ -52,11 +52,43 @@ echo $javascript->link("bootstrap-tooltip");
                     <span class="icon-bar"></span>
                 </button>
                 <div class="nav-collapse collapse">
-                    <?php echo $this->element("usuarios/menu_usuario") ?>
+                     <?php
+                      unset($OUsuario);
+                      $OUsuario=$this->Session->read('Usuario');
+                      
+                      // debug($OUsuario);
+                      
+                      if (!$OUsuario){
+                          echo $this->element("../usuarios/login");
+                      }else{    
+                        switch ($OUsuario['rol']){
+                            case "admin" :
+                                //echo "entro acá";
+                                echo $this->element("usuarios/menu_usuario");
+                                echo $this->element("encuestas/encuesta");
+                                echo $this->element("reportes/reportes");
+                                echo $this->element("../usuarios/login");
+                                break;
+                            case "direccion" :
+                                echo $this->element("reportes/reportes");
+                                echo $this->element("../usuarios/login");
+                                break;
+                            case "graduado":
+                                echo $this->element("usuarios/datos_usuario");
+                                echo $this->element("../usuarios/login");
+                                break;
+                        }
+                      
+                      }
+                      
+                        
+                     ?>
+                    <?php /* echo $this->element("usuarios/menu_usuario") ?>
                     <?php echo $this->element("usuarios/datos_usuario") ?>
                     <?php echo $this->element("encuestas/encuesta") ?>
                     <?php echo $this->element("reportes/reportes") ?>
-                    <?php echo $this->element("../usuarios/login") ?>
+                    <?php echo $this->element("../usuarios/login") */ ?>
+                        
                 </div>
                 </div>
             </div>
@@ -69,6 +101,14 @@ echo $javascript->link("bootstrap-tooltip");
             <div class="span2"><br/> </div>
             <div class="span8" id="contenedor-paginador">
                <?php echo $content_for_layout ?>
+                   <?php
+                           /* if(isset($OUsuario)){
+                                debug($OUsuario);
+                            }else{
+                               debug($this->data);
+                            }*/
+                        //debug($this->data);
+                        ?>
             </div>
             <div class="span2"><br/> </div>
         </div>
