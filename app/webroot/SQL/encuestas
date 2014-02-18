@@ -1,0 +1,200 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.1.10
+-- Dumped by pg_dump version 9.1.10
+-- Started on 2013-12-04 23:02:09 ART
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- TOC entry 7 (class 2615 OID 17325)
+-- Name: encuestas; Type: SCHEMA; Schema: -; Owner: encuestas
+--
+
+CREATE SCHEMA encuestas;
+
+
+ALTER SCHEMA encuestas OWNER TO encuestas;
+
+SET search_path = encuestas, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 164 (class 1259 OID 17338)
+-- Dependencies: 7
+-- Name: datos_academicos; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
+--
+
+CREATE TABLE datos_academicos (
+    usuario_id integer,
+    id integer NOT NULL,
+    carrera_id integer,
+    nivel_id integer,
+    titulo character varying,
+    departamento_id integer,
+    cohorte character varying,
+    promedio_sin_aplazo double precision,
+    promedio_con_aplazo double precision,
+    fecha_ultima_materia date,
+    fecha_solicitud_titulo date,
+    fecha_emision_titulo date,
+    cohorte_graduacion character varying
+);
+
+
+ALTER TABLE encuestas.datos_academicos OWNER TO encuestas;
+
+--
+-- TOC entry 165 (class 1259 OID 17347)
+-- Dependencies: 7 164
+-- Name: datos_academicos_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
+--
+
+CREATE SEQUENCE datos_academicos_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE encuestas.datos_academicos_id_seq OWNER TO encuestas;
+
+--
+-- TOC entry 1947 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: datos_academicos_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
+--
+
+ALTER SEQUENCE datos_academicos_id_seq OWNED BY datos_academicos.id;
+
+
+--
+-- TOC entry 162 (class 1259 OID 17326)
+-- Dependencies: 7
+-- Name: usuarios; Type: TABLE; Schema: encuestas; Owner: encuestas; Tablespace: 
+--
+
+CREATE TABLE usuarios (
+    id integer NOT NULL,
+    dni character varying,
+    apellido character varying,
+    nombre character varying,
+    sexo character varying,
+    usuario character varying,
+    rol character varying,
+    fecha_nac date,
+    cod_depto character varying,
+    cod_loc character varying,
+    cod_prov character varying,
+    calle character varying,
+    email_1 character varying,
+    email_2 character varying,
+    tel_fijo character varying,
+    celular character varying,
+    facebook character varying,
+    twitter character varying,
+    foto_perfil character varying,
+    created date,
+    modified date
+);
+
+
+ALTER TABLE encuestas.usuarios OWNER TO encuestas;
+
+--
+-- TOC entry 163 (class 1259 OID 17329)
+-- Dependencies: 7 162
+-- Name: usuarios_id_seq; Type: SEQUENCE; Schema: encuestas; Owner: encuestas
+--
+
+CREATE SEQUENCE usuarios_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE encuestas.usuarios_id_seq OWNER TO encuestas;
+
+--
+-- TOC entry 1948 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: usuarios_id_seq; Type: SEQUENCE OWNED BY; Schema: encuestas; Owner: encuestas
+--
+
+ALTER SEQUENCE usuarios_id_seq OWNED BY usuarios.id;
+
+
+--
+-- TOC entry 1837 (class 2604 OID 17349)
+-- Dependencies: 165 164
+-- Name: id; Type: DEFAULT; Schema: encuestas; Owner: encuestas
+--
+
+ALTER TABLE ONLY datos_academicos ALTER COLUMN id SET DEFAULT nextval('datos_academicos_id_seq'::regclass);
+
+
+--
+-- TOC entry 1836 (class 2604 OID 17331)
+-- Dependencies: 163 162
+-- Name: id; Type: DEFAULT; Schema: encuestas; Owner: encuestas
+--
+
+ALTER TABLE ONLY usuarios ALTER COLUMN id SET DEFAULT nextval('usuarios_id_seq'::regclass);
+
+
+--
+-- TOC entry 1941 (class 0 OID 17338)
+-- Dependencies: 164 1943
+-- Data for Name: datos_academicos; Type: TABLE DATA; Schema: encuestas; Owner: encuestas
+--
+
+COPY datos_academicos (usuario_id, id, carrera_id, nivel_id, titulo, departamento_id, cohorte, promedio_sin_aplazo, promedio_con_aplazo, fecha_ultima_materia, fecha_solicitud_titulo, fecha_emision_titulo, cohorte_graduacion) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1949 (class 0 OID 0)
+-- Dependencies: 165
+-- Name: datos_academicos_id_seq; Type: SEQUENCE SET; Schema: encuestas; Owner: encuestas
+--
+
+SELECT pg_catalog.setval('datos_academicos_id_seq', 1, false);
+
+
+--
+-- TOC entry 1939 (class 0 OID 17326)
+-- Dependencies: 162 1943
+-- Data for Name: usuarios; Type: TABLE DATA; Schema: encuestas; Owner: encuestas
+--
+
+COPY usuarios (id, dni, apellido, nombre, sexo, usuario, rol, fecha_nac, cod_depto, cod_loc, cod_prov, calle, email_1, email_2, tel_fijo, celular, facebook, twitter, foto_perfil, created, modified) FROM stdin;
+\.
+
+
+--
+-- TOC entry 1950 (class 0 OID 0)
+-- Dependencies: 163
+-- Name: usuarios_id_seq; Type: SEQUENCE SET; Schema: encuestas; Owner: encuestas
+--
+
+SELECT pg_catalog.setval('usuarios_id_seq', 1, false);
+
+
+-- Completed on 2013-12-04 23:02:10 ART
+
+--
+-- PostgreSQL database dump complete
+--
+
