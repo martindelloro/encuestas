@@ -1,5 +1,5 @@
 <?php
-
+App::import('Vendor', 'excel_reader2');
 
 
 class AppController extends Controller {
