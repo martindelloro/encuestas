@@ -14,7 +14,7 @@ class EncuestasController extends AppController{
 			}
 			
 		}
-		$grupos = $this->Encuesta->Grupo->find("list");
+		$grupos = $this->Encuesta->Grupos->find("list");
 		// $preguntas = $this->Encuesta->Preguntas->find("list");
 		
 		$this->set("grupos",$grupos);

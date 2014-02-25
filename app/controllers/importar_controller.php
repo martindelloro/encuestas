@@ -1,24 +1,26 @@
 <?php
 
 class ImportarController extends AppController{
-	var $uses = array("Pregunta","Usuario");
+	var $uses = array("Pregunta");
 	
 	private function buscarOpciones(){
 		
 	}
 		
 	function crearPreguntas(){
+		$remplazar = array('à'=>'a','á'=>'a','è'=>'e','é'=>'e','ì'=>'i','í'=>'i','ò'=>'o','ó'=>'o','ù'=>'u','ú'=>'u');
 		$this->autoRender = false;
 		$data = new Spreadsheet_Excel_Reader(WWW_ROOT.'/excels/importar.xls', false);
 		$filas = $data->rowcount(0);
 		$columnas = $data->colcount(0);
 		for($col= 13; $col<= $columnas;$col++){
+			$pregunta = array();
 			$pregunta["Pregunta"]["nombre"] = utf8_encode($data->val(1,$col));
 			$opciones = array();
 			$sinAcento = array();
 			
 			for($fila = 2;$fila <= $filas; $fila++){
-				$opcion = strtr(strtolower($data->val($fila,$col)),'àáâãäçèéêëìíîïòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝ','aaaaaceeeeiiiiooooouuuuyyAAAAACEEEEIIIIOOOOOUUUUY');
+				$opcion = strtr(strtolower($data->val($fila,$col)),$remplazar);
 				if(!empty($opcion)){
 					$opciones[] = utf8_encode($opcion);
 				}
@@ -46,12 +48,77 @@ class ImportarController extends AppController{
 						}
 					break;
 				case ($diferentes >=30 ):
-						$pregunta["Pregunta"][$col]["tipo_id"] = 1;
+						$pregunta["Pregunta"]["tipo_id"] = 1;
 						break;
 			} // fin switch
 			$this->Pregunta->saveAll($pregunta,false);
 		} // fin For preguntas
 	} // Fin funcion
+	
+	
+	function cargarContenido(){
+		$this->autoRender = false;
+		$remplazar = array('à'=>'a','á'=>'a','è'=>'e','é'=>'e','ì'=>'i','í'=>'i','ò'=>'o','ó'=>'o','ù'=>'u','ú'=>'u');
+		$data = new Spreadsheet_Excel_Reader(WWW_ROOT.'/excels/importar.xls', false);
+		$filas = $data->rowcount(0);
+		$columnas = $data->colcount(0);
+		$contResp = 0;
+		
+		for($fila = 200; $fila <= $filas; $fila++){
+			for($col = 4; $col <= $columnas; $col++){
+				switch($col){
+					case 4:
+						$dni = preg_replace( '/[^0-9]/', '', $data->val($fila,$col));
+						$usuario = $this->Pregunta->Usuario->find("first",array("conditions"=>array("Usuario.dni"=>$dni),"recursive"=>-1));
+						$usuario_id = $usuario["Usuario"]["id"];
+						break;
+					case ($col >= 13):
+						$nombrePregunta = utf8_encode($data->val(1,$col));
+						$valor = strtolower($data->val($fila,$col));
+						if(!empty($valor)){
+							$contResp++;
+							$valor = utf8_encode($valor);
+							$pregunta = $this->Pregunta->find("first",array("conditions"=>array("Pregunta.nombre"=>$nombrePregunta),"recursive"=>-1));
+							switch($pregunta["Pregunta"]["tipo_id"]){
+								case 1:
+									$respuesta[$contResp]["Respuesta"]["id"] = '';
+									$respuesta[$contResp]["Respuesta"]["usuario_id"] = $usuario["Usuario"]["id"];
+									$respuesta[$contResp]["Respuesta"]["pregunta_id"] = $pregunta["Pregunta"]["id"];
+									$respuesta[$contResp]["Respuesta"]["tipo_id"] = $pregunta["Pregunta"]["tipo_id"];
+									$respuesta[$contResp]["Respuesta"]["respuesta_texto"] = utf8_encode($valor);
+									break;
+								case 2:
+									// NO HAY TIEMPO X AHORA
+									break;
+								case 3:
+									// NO HAY TIEMPO X AHORA
+									break;
+								case 4:
+									$opcion = $this->Pregunta->Opcion->find("first",array("conditions"=>array("Opcion.nombre"=>$valor,"Opcion.pregunta_id"=>$pregunta["Pregunta"]["id"]),"recursive"=>-1));
+									$respuesta[$contResp]["Respuesta"]["id"] = '';
+									$respuesta[$contResp]["Respuesta"]["usuario_id"] = $usuario["Usuario"]["id"];
+									$respuesta[$contResp]["Respuesta"]["pregunta_id"] = $pregunta["Pregunta"]["id"];
+									$respuesta[$contResp]["Respuesta"]["tipo_id"] = $pregunta["Pregunta"]["tipo_id"];
+									$respuesta[$contResp]["Respuesta"]["respuesta_opcion"] = $opcion["Opcion"]["id"];
+									break;
+								case 5:
+									// NO HAY TIEMPO X AHORA
+									break;
+								case 6:
+									$respuesta[$contResp]["Respuesta"]["id"] = '';
+									$respuesta[$contResp]["Respuesta"]["usuario_id"] = $usuario["Usuario"]["id"];
+									$respuesta[$contResp]["Respuesta"]["pregunta_id"] = $pregunta["Pregunta"]["id"];
+									$respuesta[$contResp]["Respuesta"]["tipo_id"] = $pregunta["Pregunta"]["tipo_id"];
+									$respuesta[$contResp]["Respuesta"]["respuesta_sino"] = ($valor == "si" || $valor == 'sí')?true:false;
+									break;
+							} // FIN SWITCH PREGUNTA TIPO_ID
+						} // FIN IF SI NO ESTA VACIA LA RESPUESTA
+				} // FIN SWITCH COLUMNA
+				} // FIN FOR COLUMNA
+				
+			} // FIN FOR FILA
+			$this->Pregunta->Respuesta->saveAll($respuesta);
+	}
 	
 	function crearUsuario(){
 		$this->autoRender = false;
@@ -117,7 +184,7 @@ class ImportarController extends AppController{
 			$usuario["Usuario"]["hashActivador"] = md5($usuario["Usuario"]["usuario"]);
 			$usuario["Usuario"]["activado"] = false;
 			$usuario["Usuario"]["rol"] = "graduado";
-			$this->Usuario->save($usuario["Usuario"],false);
+			$this->Pregunta->Usuario->save($usuario["Usuario"],false);
 		}
 	}
 	

@@ -45,8 +45,8 @@ $paginator->options(array("update"=>"#listarPreguntas","before"=>"$('body').moda
 <div class="contenedor-preguntas" id="preguntasListado">
 <?php foreach($preguntas as $pregunta): ?>
 <div class="row-fluid pregunta" id="Pregunta<?php echo $pregunta["Pregunta"]["id"] ?>" data-nombre="<?php echo $pregunta["Pregunta"]["nombre"] ?>" data-tipo="<?php echo $pregunta["Tipo"]["nombre"] ?>" data-id="<?php echo $pregunta["Pregunta"]["id"] ?>">
-	<div class="span8"><?php echo $pregunta["Pregunta"]["nombre"] ?></div>
-	<div class="span2"><?php echo $pregunta["Tipo"]["nombre"] ?></div>
+	<div class="span8" style="text-align:left"><span><?php echo $pregunta["Pregunta"]["nombre"] ?></span></div>
+	<div class="span2" style="text-align:left"><span><?php echo $pregunta["Tipo"]["nombre"] ?></span></div>
 	<div class="span2 botones">
 		<input type="checkbox" value="<?php echo $pregunta["Pregunta"]["id"] ?>" />
 		<?php echo $this->Ajax->link("<i class='icon-edit'></i>",array('controller'=>'preguntas','action'=>'editar',$pregunta["Pregunta"]["id"]),array('escape'=>false,'class'=>'btn-mini btn-inverse','before'=>"modales('editarPregunta','modal-ficha')",'complete'=>"fin_ajax('editarPregunta')",'update'=>'editarPregunta')) ?>

@@ -44,7 +44,7 @@ class UsuariosController extends AppController {
           //$this->OUsuario = Login($this->data['User']['usuario'],md5($this->data['User']['password']));
             $OUsuario=$this->Usuario->findByUsuario($this->data['User']['usuario']);
            //debug($usuario);
-            if ($OUsuario!=""){
+            if ($OUsuario != null){
                 if(md5($this->data['User']['password']) == $OUsuario['Usuario']['password']){
                     //echo "esta todo bien"; //acá tiene que cargar los menues para distintos tipos de usuario
                     $this->Session->Write($OUsuario);
