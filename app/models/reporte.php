@@ -2,7 +2,7 @@
 
 class Reporte extends AppModel{
 	var $useTable="reportes";
-        var $hasOne=array('EncuestaVieja'=>array("className"=>'EncuestaVieja', "foreignKey"=>"reporte_id"));
+    var $belongsTo = array("Encuesta"=>array("className"=>"Encuesta","foreignKey"=>"encuesta_id"));
         
 	
 }

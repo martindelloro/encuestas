@@ -21,6 +21,13 @@ class EncuestasController extends AppController{
 		// $this->set("preguntas",$preguntas);	
 	}
 	
+	function ver(){
+		$this->autoRender = false;
+		$encuesta = $this->Encuesta->find("first",array("conditions"=>array("Encuesta.id"=>2),"contain"=>array("Preguntas"=>array("Respuesta"=>array("conditions"=>array("Respuesta.encuesta_id"=>2))))));
+		debug($encuesta);
+		break;
+	}
+	
 }
 
 ?>

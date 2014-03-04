@@ -13,8 +13,6 @@
 <?php
 
 echo $html->css('estilo');
-echo $content_for_layout;
-
 echo $html->css('bootstrap-combined.no-icons.min');
 echo $html->css('bootstrap-responsive');
 echo $html->css('font-awesome');
@@ -32,6 +30,7 @@ echo $javascript->link("bootstrap-modal");
 echo $javascript->link("bootstrap-modalmanager");
 echo $javascript->link("typeahead");
 echo $javascript->link("bootstrap-tooltip");
+echo $javascript->link("jquery.blockUI");
 
 ?>
 <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
@@ -41,8 +40,7 @@ echo $javascript->link("bootstrap-tooltip");
 <body>
     
     <?php echo $this->element("mensaje_sistema"); ?>
-    <?php echo $this->element("cargando"); ?>
-
+    
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
@@ -89,16 +87,15 @@ echo $javascript->link("bootstrap-tooltip");
                     <?php echo $this->element("reportes/reportes") ?>
                     <?php echo $this->element("../usuarios/login") */ ?>
                         
-                </div>
-                </div>
-            </div>
-        </div>
+                </div> <!-- FIN DIV NAV-COLLAPSE -->
+                </div> <!-- FIN DIV CONTAINER -->
+            </div> <!--  FIN DIV NAVBAR-INNER -->
+        </div> <!-- FIN DIV NAVBAR -->
     
       
     <div class="container">
-        <div class="banner"></div>
-        <div class="row">
-            <div class="span2"><br/> </div>
+        <div class="row-fluid">
+            <div class="span2"></div>
             <div class="span8" id="contenedor-paginador">
                <?php echo $content_for_layout ?>
                    <?php
@@ -109,10 +106,10 @@ echo $javascript->link("bootstrap-tooltip");
                             }*/
                         //debug($this->data);
                         ?>
-            </div>
+            </div> <!-- FIN DIV CONTENEDOR-PAGINADOR -->
             <div class="span2"><br/> </div>
-        </div>
-    </div>
+        </div> <!-- FIN DIV ROW-FLUID -->
+    </div> <!-- FIN DIV CONTAINER -->
         
 
     <div id="exec_js" style="display:none">

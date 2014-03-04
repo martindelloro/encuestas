@@ -17,6 +17,34 @@ class ReportesController extends AppController{
           $this->set('filtros',$filtros);
         }
         
+    function generar(){
+    	// $this->autoRender = false;
+    	$encuestas = $this->Reporte->Encuesta->find("list",array("recursive"=>-1));
+    	$this->set("encuestas",$encuestas);
+    }
+    
+    function buscarPreguntas($seccion){
+    	$this->autoRender = false;
+    	$encuesta_id = $this->data["Reporte"]["encuesta_id"];
+    	$preguntas = $this->Reporte->Encuesta->EncuestaPregunta->find("list",array("conditions"=>array("encuesta_id"=>$encuesta_id)));
+    	$this->set("preguntas",$preguntas);
+    	switch($seccion){
+    		case "variables":
+    			$this->render("/elements/reportes/variables");
+    			break;
+    		case "filtros":
+    			$this->render("/elements/reportes/filtros");
+    			break;
+    	}
+    }
+    
+    function generarFiltro($pregunta_id){
+    	$this->autoRender = false;
+    	debug($pregunta_id);
+    	
+    }
+        
+        
 	function buscar(){
               if(empty($this->data)){
                 $this->data = $this->Session->read('buscar');

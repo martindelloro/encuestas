@@ -1,9 +1,13 @@
 <div class="tab-pane active" id="pregunta">
 	<div class="well titulo-opciones">Pregunta</div>
 	<div class="row-fluid">
-		<div class="span9"><?php echo $this->Form->input("nombre",array("type"=>"text","label"=>"Nombre")) ?></div>
-		<div class="span3"><?php echo $this->Form->input("tipo_id",array("type"=>"select","options"=>$tipos,"label"=>"Tipo de pregunta")) ?></div>
-	</div>			
+		<div class="span9">
+			<?php echo $this->Form->input("nombre",array("type"=>"text","label"=>"Nombre")) ?>
+		</div>
+		<div class="span3">
+			<?php echo $this->Form->input("tipo_id",array("type"=>"select","options"=>$tipos,"label"=>"Tipo de pregunta")) ?>
+		</div>
+	</div>
 </div>
 
 <script type="text/javascript">
