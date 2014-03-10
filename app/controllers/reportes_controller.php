@@ -23,6 +23,13 @@ class ReportesController extends AppController{
     	$this->set("encuestas",$encuestas);
     }
     
+    function crear(){
+    	$this->autoRender = false;
+    	debug($this->data);
+    	$this->Reporte->saveAll($this->data,array("atomic"=>false));
+		echo "capo";    	
+    }
+    
     function buscarPreguntas($seccion){
     	$this->autoRender = false;
     	$encuesta_id = $this->data["Reporte"]["encuesta_id"];
@@ -40,7 +47,14 @@ class ReportesController extends AppController{
     
     function generarFiltro($pregunta_id){
     	$this->autoRender = false;
-    	debug($pregunta_id);
+    	$this->loadModel("Pregunta");
+    	$pregunta = $this->Pregunta->find("first",array("conditions"=>array("Pregunta.id"=>$pregunta_id),"contain"=>array("Opcion")));
+    	switch($pregunta["Pregunta"]["tipo_id"]){
+    		case 4:
+    			$this->set("opciones",$this->Pregunta->Opcion->find("list",array("conditions"=>array("Opcion.pregunta_id"=>$pregunta_id))));
+    			$this->render("/elements/reportes/generarFiltro/tipo_4");
+    			break;
+    	}
     	
     }
         

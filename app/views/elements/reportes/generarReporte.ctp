@@ -8,43 +8,15 @@
 	</div>
 
 	<div class="well contenedor-well" id="paso2">
-		<span class="label label-titular">PASO 2</span> <span
-			class="label label-titular">Seleccione las preguntas</span>
-		<div class="row-fluid">
-			<div class="span4">
-				<span class="label label-titular">Variable X</span>
-				<?php echo $this->Form->input("x",array("type"=>"select","options"=>null,"label"=>false,"empty"=>true)) ?>
-			</div>
-			<div class="span4">
-				<span class="label label-titular">Variable Y</span>
-				<?php echo $this->Form->input("y",array("type"=>"select","options"=>null,"label"=>false,"empty"=>true)) ?>
-			</div>
-			<div class="span4">
-				<span class="label label-titular">Tipo Grafico</span>
-				<?php echo $this->Form->input("tipoGrafico",array("type"=>"select","options"=>null,"label"=>false))?>
-			</div>
-		</div>
+		<?php echo $this->element("/reportes/variables"); ?>
 	</div>
 
 	<div class="well contenedor-well" id="paso3">
-		<span class="label label-titular">PASO 3</span> <span
-			class="label label-titular">Seleccione filtros (opcional)</span>
-		<div class="row-fluid">
-			<div class="span4">
-				<span class="label label-titular">Filtro 1</span>
-				<?php echo $this->Form->input("x",array("type"=>"select","options"=>null,"label"=>false,"empty"=>true)) ?>
-			</div>
-			<div class="span4">
-				<span class="label label-titular">Variable Y</span>
-				<?php echo $this->Form->input("y",array("type"=>"select","options"=>null,"label"=>false,"empty"=>true)) ?>
-			</div>
-			<div class="span4">
-				<span class="label label-titular">Tipo Grafico</span>
-				<?php echo $this->Form->input("tipoGrafico",array("type"=>"select","options"=>null,"label"=>false))?>
-			</div>
-		</div>
+		<?php echo $this->element("/reportes/filtros") ?>
 	</div>
 
+	<?php echo $this->Ajax->submit("Crear subreporte",array("url"=>array("controller"=>"reportes","action"=>"crear"),"before"=>"inicia_ajax()","update"=>"generados","complete"=>"fin_ajax()","class"=>"btn btn-inverse")); ?>
+	
 	<?php echo $this->Form->end() ?>
 	<?php echo $this->Ajax->observeField("ReporteEncuestaId",array("url"=>array("controller"=>"reportes","action"=>"buscarPreguntas","variables"),"update"=>"paso2","before"=>"inicia_ajax()","complete"=>"fin_ajax()")); ?>
 	<?php echo $this->Ajax->observeField("ReporteEncuestaId",array("url"=>array("controller"=>"reportes","action"=>"buscarPreguntas","filtros"),"update"=>"paso3","before"=>"inicia_ajax()","complete"=>"fin_ajax()")); ?>

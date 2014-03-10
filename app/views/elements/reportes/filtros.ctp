@@ -4,7 +4,7 @@
 <div class="row-fluid">
 	<div class="span12">
 		<span class="label label-titular">Filtro 1</span>
-		<?php echo $this->Form->input("Filtro.0.id",array("type"=>"select","options"=>$preguntas,"label"=>false,"empty"=>true,"class"=>"FiltroPregunta","data-n"=>0)) ?>
+		<?php echo @$this->Form->input("SubReporte.0.Filtro.0.pregunta_id",array("type"=>"select","options"=>$preguntas,"label"=>false,"empty"=>true,"class"=>"FiltroPregunta","data-n"=>0)) ?>
 		<div class="contenedor-opciones" id="filtro0">
 		
 		</div>		

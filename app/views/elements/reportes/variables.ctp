@@ -8,15 +8,15 @@ $graficos = array("1"=>"Barras","2"=>"Stacked BAR","3"=>"Burbujas");
 <div class="row-fluid">
 	<div class="span4">
 		<span class="label label-titular">Variable X</span>
-		<?php echo $this->Form->input("x",array("type"=>"select","options"=>$preguntas,"label"=>false,"empty"=>true)) ?>
+		<?php echo @$this->Form->input("SubReporte.0.variable_x",array("type"=>"select","options"=>$preguntas,"label"=>false,"empty"=>true)) ?>
 	</div>
 	<div class="span4">
 		<span class="label label-titular">Variable Y</span>
-		<?php echo $this->Form->input("y",array("type"=>"select","options"=>$preguntas,"label"=>false,"empty"=>true)) ?>
+		<?php echo @$this->Form->input("SubReporte.0.variable_y",array("type"=>"select","options"=>$preguntas,"label"=>false,"empty"=>true)) ?>
 	</div>
 	<div class="span4">
 		<span class="label label-titular">Tipo Grafico</span>
-		<?php echo $this->Form->input("tipoGrafico",array("type"=>"select","options"=>$graficos,"label"=>false))?>
+		<?php echo @$this->Form->input("SubReporte.0.grafico_tipo",array("type"=>"select","options"=>$graficos,"label"=>false))?>
 	</div>
 </div>
 
