@@ -7,19 +7,17 @@
 </div>
 
 <ul class="nav nav-pills borde-abajo barra-nav" style="clear:both">
-    <li class="active"><?php echo $this->Html->link("Usuario","#usuario",array("data-toggle"=>"tab")) ?></li>
-    <li><?php // echo $this->Html->link("Datos Usuario","#datosUser",array("data-toggle"=>"tab")) ?></li> 
-	
+    <li class="active"><?php echo $this->Html->link("Grupo","#grupo",array("data-toggle"=>"tab")) ?></li>
+    	
 </ul>
 
 <div class="modal-body">
 	 <div class="tabbable">
-	    <?php echo $this->Form->create("Usuario") ?>
+	    <?php echo $this->Form->create("Grupo") ?>
         <div class="tab-content">
                                
-				<?php echo $this->element("usuarios/buscar_usuario_form") ?>
-                                 <?php //echo $this->element("usuarios/dato_user_form") ?>
-				
+				<?php echo $this->element("grupos/grupo_form") ?>
+                                 
 		</div>
      
                 

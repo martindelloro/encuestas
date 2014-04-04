@@ -49,6 +49,7 @@ class UsuariosController extends AppController {
                     //echo "esta todo bien"; //acá tiene que cargar los menues para distintos tipos de usuario
                     $this->Session->Write($OUsuario);
                     $this->set('OUsuario',$OUsuario);
+                    $this->set("redirect",true);
                     //$this->render('../pages/inicio');
                 }else{
                     $this->Session->setFlash("ERROR-Verifique usuario/contraseña",null,null,"mensaje_sistema");
@@ -59,12 +60,6 @@ class UsuariosController extends AppController {
             
         }catch(LoginException $e){
           $this->Session->setFlash($e->getMessage(),'error_usuario',null,'mensaje_sistema');
-        }
-
-        if($OUsuario != null ) {
-            $this->Session->Write($OUsuario);
-            $this->set('OUsuario',$OUsuario);
-            $this->set("redirect",true);
         }
 
      }

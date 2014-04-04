@@ -5,9 +5,9 @@
 		</a>
 			<div class="dropdown-menu"
 				style="padding: 15px; padding-bottom: 0px;">
-				<?php echo $this->Ajax->link("Crear",array("controller"=>"encuestas","action"=>"crear"),array("before"=>"modales('crearEncuesta','modal-ficha')","complete"=>"fin_ajax('crearEncuesta')","update"=>"crearEncuesta","class"=>"btn btn-inverse")); ?>
+				<?php echo $this->Ajax->link("Crear Encuesta",array("controller"=>"encuestas","action"=>"crear"),array("before"=>"modales('crearEncuesta','modal-ficha')","complete"=>"fin_ajax('crearEncuesta')","update"=>"crearEncuesta","class"=>"btn btn-inverse")); ?>
 				<br>
-				<?php echo $this->Ajax->link("Buscar",array("controller"=>"encuestas","action"=>"buscar"),array("before"=>"modales('buscarEncuesta','modal-ficha')","complete"=>"fin_ajax('buscarEncuesta')","update"=>"buscarEncuesta","class"=>"btn btn-inverse")); ?>
+				<?php echo $this->Ajax->link("Buscar Encuesta",array("controller"=>"encuestas","action"=>"buscar"),array("before"=>"modales('buscarEncuesta','modal-ficha')","complete"=>"fin_ajax('buscarEncuesta')","update"=>"buscarEncuesta","class"=>"btn btn-inverse")); ?>
 				<br> <br>
 			</div></li>
 	</ul>

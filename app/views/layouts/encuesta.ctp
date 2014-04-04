@@ -62,6 +62,7 @@ echo $javascript->link("jquery.blockUI");
                         switch ($OUsuario['rol']){
                             case "admin" :
                                 //echo "entro acá";
+                                echo $this->element("grupos/menu_grupo");
                                 echo $this->element("usuarios/menu_usuario");
                                 echo $this->element("encuestas/encuesta");
                                 echo $this->element("reportes/reportes");
