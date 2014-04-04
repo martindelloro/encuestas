@@ -3,6 +3,17 @@
 class ImportarController extends AppController{
 	var $uses = array("Pregunta");
 	
+        function beforeFilter() {
+            parent::beforeFilter();
+            $sesion=$this->Session->Read();
+            if($sesion['Usuario']==null){
+
+               $this->Session->setFlash("Debe loguearse para acceder a esta sección.<br>"
+                        . "               El administrador ha sido notificado del error",null,null,"mensaje_sistema");
+                $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
+            }
+
+        }	
 	private function buscarOpciones(){
 		
 	}

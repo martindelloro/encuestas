@@ -1,7 +1,17 @@
 <?php
 
 class EncuestasController extends AppController{
-		
+	function beforeFilter() {
+            parent::beforeFilter();
+            $sesion=$this->Session->Read();
+            if($sesion['Usuario']==null){
+
+                $this->Session->setFlash("Debe loguearse para acceder a esta sección.<br>"
+                        . "               El administrador ha sido notificado del error",null,null,"mensaje_sistema");
+                $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
+            }
+
+        }	
 	function crear(){
 		if(!empty($this->data)){
 			if($this->Encuesta->saveAll($this->data)){

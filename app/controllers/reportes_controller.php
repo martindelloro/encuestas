@@ -2,7 +2,17 @@
 
 class ReportesController extends AppController{
         var $uses = array("Reporte","ListadoCarrera");
-        
+	function beforeFilter() {
+            parent::beforeFilter();
+            $sesion=$this->Session->Read();
+            if($sesion['Usuario']==null){
+
+                $this->Session->setFlash("Debe loguearse para acceder a esta sección.<br>"
+                        . "               El administrador ha sido notificado del error",null,null,"mensaje_sistema");
+                $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
+            }
+
+        }        
         function generar_reportes(){
             $listado=$this->ListadoCarrera->find("list");
             $variables=array("Listado de Variables" => "Listado de Variables");

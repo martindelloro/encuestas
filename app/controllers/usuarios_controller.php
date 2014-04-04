@@ -5,9 +5,21 @@ class UsuariosController extends AppController {
     var $userData = array();
     var $OUsuario=null;
     var $usuarios=null;
+    
+    function beforeFilter() {
+            parent::beforeFilter();
+            $sesion=$this->Session->Read();
+            if($sesion['Usuario']==null){
 
+                $this->Session->setFlash("Debe loguearse para acceder a esta sección.<br>"
+                        . "               El administrador ha sido notificado del error",null,null,"mensaje_sistema");
+                $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
+            }
 
-    function  crear_usuario(){
+        }
+
+       
+       function  crear_usuario(){
         if(!empty($this->data)){
             if($this->data['Usuario']['password']==$this->data['Usuario']['password_rep']){
                 $this->data['Usuario']['password']=md5($this->data['Usuario']['password']); //lo seteo para que lo guarde con seguridad md5
