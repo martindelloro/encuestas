@@ -1,28 +1,37 @@
 <?php
 
 class MyFilesController extends AppController {
+    
     function add() {			
         if (!empty($this->data) 
                 && is_uploaded_file($this->data['MyFile']['File']['tmp_name'])) {
            
-            /*$fileData = addslashes(fread(fopen($this->params['form']['File']['tmp_name'], 'r'),
+            /*$fileData = addcslashes(fread(fopen($this->params['form']['File']['tmp_name'], 'r'),
                     $this->params['form']['File']['size']));*/
             $fileData = fread(fopen($this->data['MyFile']['File']['tmp_name'], "r"), 
-                                     $this->data['MyFile']['File']['size']);
+                                     $this->data['MyFile']['File']['size']); 
+            //debug ($this->data['MyFile']);
+            $puntero = fopen('/var/www/excels/'.$this->data['MyFile']['File']['name'],'x+');
+            $excel = fread(fopen($this->data['MyFile']['File']['tmp_name'], "r"),
+                                    $this->data['MyFile']['File']['size']);
+            //$excel=fopen($this->data['MyFile']['File']['tmp_name'], 'rw'); //le paso el nombre y rw
+            fwrite($puntero,$excel,$this->data["MyFile"]["File"]["size"]);
             
-           
-            //$fileData= htmlspecialchars ( string $string [, int $flags = ENT_COMPAT | ENT_HTML401 [, string $encoding = 'UTF-8' [, bool $double_encode = true ]]] );
+            fclose($puntero); 
+            
             $this->data['MyFile']['name'] = $this->data['MyFile']['File']['name'];
             $this->data['MyFile']['type'] = $this->data['MyFile']['File']['type'];
             $this->data['MyFile']['size'] = $this->data['MyFile']['File']['size'];
             $this->data['MyFile']['data'] = $fileData;
-            debug( $fileData);
-                //debug($this->data['MyFile']);
-            $this->MyFile->save($this->data);
-            //$filename = $this->data['MyFile']['File']['tmp_name'];
-            //move_uploaded_file($this->data['MyFile']['File']['tmp_name'],'var/www/app/webroot/pru'.$filename);
-            //move_uploaded_file($this->data['MyFile']['File']['tmp_name'], '/var/www/encuestas/webroot/pru');        
-            //$this->redirect('somecontroller/someaction');
+           
+
+            if($this->MyFile->save($this->data)){
+                $this->requestAction('/importar/crearUsuario/'.$this->data['MyFile']['File']['name']);
+                $this->Session->setFlash("Se han cargado todos los usuarios",null,null,"mensaje_sistema");
+                $this->set("redirect",true);
+            }
+            
+            //this->request->action
         }
     }
     function download($id) {

@@ -140,9 +140,10 @@ class ImportarController extends AppController{
 			$this->Pregunta->Respuesta->saveAll($respuesta);
 	}
 	
-	function crearUsuario(){
+	function crearUsuario($excel_name){
 		$this->autoRender = false;
-		$data = new Spreadsheet_Excel_Reader(WWW_ROOT.'/excels/importar.xls', false);
+		//$data = new Spreadsheet_Excel_Reader(WWW_ROOT.'/excels/importar.xls', false);
+                $data = new Spreadsheet_Excel_Reader('/var/www/excels/'.$excel_name, false);
 		$filas = $data->rowcount(0);
 		$columnas = $data->colcount(0);
 		
