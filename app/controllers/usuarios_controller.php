@@ -6,7 +6,7 @@ class UsuariosController extends AppController {
     var $OUsuario=null;
     var $usuarios=null;
     
-    function beforeFilter() {
+    /*function beforeFilter() {
             parent::beforeFilter();
             $sesion=$this->Session->Read();
             if($sesion['Usuario']==null){
@@ -16,7 +16,7 @@ class UsuariosController extends AppController {
                 $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
             }
 
-        }
+        }*/
 
        
        function  crear_usuario(){

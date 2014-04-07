@@ -9,7 +9,7 @@
 				<br>
 				<?php echo $this->Ajax->link("Buscar Usuario",array("controller"=>"usuarios","action"=>"buscar_usuario"),array("before"=>"modales('buscar_usuario','modal-ficha')","complete"=>"fin_ajax('buscar_usuario')","update"=>"buscar_usuario","class"=>"btn btn-inverse")); ?>
 				<br>
-				<?php echo $this->Ajax->link("Importar Usuarios",array("controller"=>"usuarios","action"=>"importar_usuario"),array("before"=>"modales('crear_usuario','modal-ficha')","complete"=>"fin_ajax('modificar_usuario')","update"=>"modificar_usuario","class"=>"btn btn-inverse")); ?>
+				<?php echo $this->Ajax->link("Importar Usuarios",array("controller"=>"my_files","action"=>"add"),array("before"=>"modales('agregar_excel','modal-ficha')","complete"=>"fin_ajax('agregar_excel')","update"=>"agregar_excel","class"=>"btn btn-inverse")); ?>
 				<br> <br>
 			</div></li>
 	</ul>

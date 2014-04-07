@@ -7,6 +7,8 @@
             <file>file:/var/www/encuestas/app/views/elements/grupos/crear_grupo.ctp</file>
             <file>file:/var/www/encuestas/app/models/grupo.php</file>
             <file>file:/var/www/encuestas/app/views/elements/grupos/menu_grupo.ctp</file>
+            <file>file:/var/www/encuestas/app/controllers/importar_controller.php</file>
+            <file>file:/var/www/encuestas/app/controllers/usuarios_controller.php</file>
         </group>
     </open-files>
 </project-private>

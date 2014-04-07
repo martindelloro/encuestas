@@ -1,7 +1,8 @@
 <?php
 
 class ImportarController extends AppController{
-	var $uses = array("Pregunta");
+	var $uses = array('Pregunta','Grupo');
+        var $components= array('RequestHandler');
 	
         function beforeFilter() {
             parent::beforeFilter();
@@ -17,6 +18,14 @@ class ImportarController extends AppController{
 	private function buscarOpciones(){
 		
 	}
+       
+        function agregar_excel() {
+            $grupos=$this->Grupo->find('list', array('fields'=>'Grupo.nombre'));
+            $this->set('grupos',$grupos);
+            
+             
+                                 
+            }
 		
 	function crearPreguntas(){
 		$remplazar = array('à'=>'a','á'=>'a','è'=>'e','é'=>'e','ì'=>'i','í'=>'i','ò'=>'o','ó'=>'o','ù'=>'u','ú'=>'u');
