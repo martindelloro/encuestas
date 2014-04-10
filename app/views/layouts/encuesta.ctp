@@ -66,7 +66,9 @@ echo $javascript->link("jquery.blockUI");
                                 echo $this->element("usuarios/menu_usuario");
                                 echo $this->element("encuestas/encuesta");
                                 echo $this->element("reportes/reportes");
+                                echo $this->element("email/panel");
                                 echo $this->element("../usuarios/login");
+                                
                                 break;
                             case "direccion" :
                                 echo $this->element("reportes/reportes");

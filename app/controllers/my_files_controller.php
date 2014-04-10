@@ -1,8 +1,11 @@
 <?php
 
 class MyFilesController extends AppController {
+    var $uses=array('Grupo');
     
-    function add() {			
+    function add() {
+        $grupos=$this->Grupo->find('list', array('fields'=>'Grupo.nombre'));
+            $this->set('grupos',$grupos);
         if (!empty($this->data) 
                 && is_uploaded_file($this->data['MyFile']['File']['tmp_name'])) {
            
@@ -28,7 +31,7 @@ class MyFilesController extends AppController {
             if($this->MyFile->save($this->data)){
                 $this->requestAction('/importar/crearUsuario/'.$this->data['MyFile']['File']['name']);
                 $this->Session->setFlash("Se han cargado todos los usuarios",null,null,"mensaje_sistema");
-                $this->set("redirect",true);
+                $this->redirect(array('controller'=>'pages','action'=>'display','inicio'));
             }
             
             //this->request->action
